@@ -33,6 +33,7 @@ namespace winrt::yara::implementation
         ApplicationViewTitleBar titleBar = view.TitleBar();
         auto transparentColor = Colors::Transparent();
         titleBar.ButtonBackgroundColor(transparentColor);
+        titleBar.ButtonInactiveBackgroundColor(transparentColor);
 
 
         auto app = Application::Current().as<App>();
