@@ -23,9 +23,18 @@ namespace winrt::yara::implementation
     {
         InitializeComponent();
 
+        /* Extends view into titlebar */
         auto currentView = CoreApplication::GetCurrentView();
         auto currentTitleBar = currentView.TitleBar();
         currentTitleBar.ExtendViewIntoTitleBar(true);
+
+        /* Sets buttons background color to transparent */
+        ApplicationView view = ApplicationView::GetForCurrentView();
+        ApplicationViewTitleBar titleBar = view.TitleBar();
+        auto transparentColor = Colors::Transparent();
+        titleBar.ButtonBackgroundColor(transparentColor);
+
+
         auto app = Application::Current().as<App>();
         ReactRootView().ReactNativeHost(app->Host());
     }
