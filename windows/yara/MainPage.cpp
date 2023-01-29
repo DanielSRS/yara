@@ -35,6 +35,9 @@ namespace winrt::yara::implementation
         titleBar.ButtonBackgroundColor(transparentColor);
         titleBar.ButtonInactiveBackgroundColor(transparentColor);
 
+        // min windows size
+        auto minSize = winrt::Windows::Foundation::Size(320, 320);
+        view.SetPreferredMinSize(minSize);
 
         auto app = Application::Current().as<App>();
         ReactRootView().ReactNativeHost(app->Host());
