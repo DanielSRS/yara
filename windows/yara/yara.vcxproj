@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This project was created with react-native-windows 0.71.0 -->
+<!-- This project was created with react-native-windows 0.71.1 -->
 <Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(SolutionDir)\ExperimentalFeatures.props" Condition="Exists('$(SolutionDir)\ExperimentalFeatures.props')" />
   <PropertyGroup Label="Globals">
     <CppWinRTOptimized>true</CppWinRTOptimized>
     <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
     <MinimalCoreWin>true</MinimalCoreWin>
-    <ProjectGuid>{0f4e3d88-abc9-459a-99a0-6491cb95e397}</ProjectGuid>
+    <ProjectGuid>{c981b878-6982-45a5-9adb-93e308a1e56a}</ProjectGuid>
     <ProjectName>yara</ProjectName>
     <RootNamespace>yara</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>

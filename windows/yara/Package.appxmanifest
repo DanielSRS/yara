@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="79575300-9dfd-47e6-b74a-c33a21a90eff"
+    Name="485962d4-88ba-4478-999a-26ca8544836f"
     Publisher="CN=dsrs"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="79575300-9dfd-47e6-b74a-c33a21a90eff" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="485962d4-88ba-4478-999a-26ca8544836f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>yara</DisplayName>
