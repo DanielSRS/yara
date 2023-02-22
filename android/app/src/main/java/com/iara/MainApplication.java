@@ -1,4 +1,4 @@
-package com.yara;
+package com.iara;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
