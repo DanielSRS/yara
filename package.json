@@ -29,6 +29,7 @@
     "react-native-screens": "3.19.0",
     "react-native-tab-view": "^3.5.0",
     "react-native-web": "0.18.12",
+    "react-native-webview": "^11.26.1",
     "react-native-windows": "0.71.1"
   },
   "devDependencies": {
