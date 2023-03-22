@@ -39,6 +39,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReactNativeAsyncStorage", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReactNativeWebView", "..\node_modules\react-native-webview\windows\ReactNativeWebView\ReactNativeWebView.vcxproj", "{00AA3765-C6A0-4713-B3F9-BFE47B9C83F5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SliderWindows", "..\node_modules\@react-native-community\slider\windows\SliderWindows\SliderWindows.vcxproj", "{685A83AE-36BC-4E9D-BDC6-417EBF168463}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DateTimePicker", "..\node_modules\@react-native-community\datetimepicker\windows\DateTimePickerWindows\DateTimePickerWindows.vcxproj", "{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -165,6 +169,30 @@ Global
 		{00AA3765-C6A0-4713-B3F9-BFE47B9C83F5}.Release|x64.Build.0 = Release|x64
 		{00AA3765-C6A0-4713-B3F9-BFE47B9C83F5}.Release|x86.ActiveCfg = Release|Win32
 		{00AA3765-C6A0-4713-B3F9-BFE47B9C83F5}.Release|x86.Build.0 = Release|Win32
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Debug|ARM64.Build.0 = Debug|ARM64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Debug|x64.ActiveCfg = Debug|x64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Debug|x64.Build.0 = Debug|x64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Debug|x86.ActiveCfg = Debug|Win32
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Debug|x86.Build.0 = Debug|Win32
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Release|ARM64.ActiveCfg = Release|ARM64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Release|ARM64.Build.0 = Release|ARM64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Release|x64.ActiveCfg = Release|x64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Release|x64.Build.0 = Release|x64
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Release|x86.ActiveCfg = Release|Win32
+		{685A83AE-36BC-4E9D-BDC6-417EBF168463}.Release|x86.Build.0 = Release|Win32
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Debug|ARM64.Build.0 = Debug|ARM64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Debug|x64.ActiveCfg = Debug|x64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Debug|x64.Build.0 = Debug|x64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Debug|x86.ActiveCfg = Debug|Win32
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Debug|x86.Build.0 = Debug|Win32
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Release|ARM64.ActiveCfg = Release|ARM64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Release|ARM64.Build.0 = Release|ARM64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Release|x64.ActiveCfg = Release|x64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Release|x64.Build.0 = Release|x64
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Release|x86.ActiveCfg = Release|Win32
+		{0986A4DB-8E72-4BB7-AE32-7D9DF1758A9D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -187,6 +215,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\node_modules\react-native-windows\Microsoft.ReactNative.Cxx\Microsoft.ReactNative.Cxx.vcxitems*{00aa3765-c6a0-4713-b3f9-bfe47b9c83f5}*SharedItemsImports = 4
 		..\node_modules\react-native-windows\Shared\Shared.vcxitems*{2049dbe9-8d13-42c9-ae4b-413ae38fffd0}*SharedItemsImports = 9
+		..\node_modules\react-native-windows\Microsoft.ReactNative.Cxx\Microsoft.ReactNative.Cxx.vcxitems*{685a83ae-36bc-4e9d-bdc6-417ebf168463}*SharedItemsImports = 4
 		..\node_modules\react-native-windows\Mso\Mso.vcxitems*{84e05bfa-cbaf-4f0d-bfb6-4ce85742a57e}*SharedItemsImports = 9
 		..\node_modules\react-native-windows\Chakra\Chakra.vcxitems*{c38970c0-5fbf-4d69-90d8-cbac225ae895}*SharedItemsImports = 9
 		..\node_modules\react-native-windows\Microsoft.ReactNative.Cxx\Microsoft.ReactNative.Cxx.vcxitems*{da8b35b3-da00-4b02-bde6-6a397b3fd46b}*SharedItemsImports = 9

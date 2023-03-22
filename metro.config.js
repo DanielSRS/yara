@@ -24,6 +24,7 @@ module.exports = {
       new RegExp(`${rnwPath}/target/.*`),
       /.*\.ProjectImports\.zip/,
     ]),
+    resolverMainFields: ['sbmodern', 'react-native', 'browser', 'main'],
   },
   transformer: {
     getTransformOptions: async () => ({

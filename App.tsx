@@ -13,10 +13,16 @@ import {
   Text,
   StyleProp,
   ViewStyle,
+  Platform,
 } from 'react-native';
+
+import Stories from './.storybook';
+
+const showStories = true;
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const isWeb = Platform.OS === 'web';
 
   const backgroundStyle: StyleProp<ViewStyle> = {
     backgroundColor: isDarkMode ? '#000' : '#FFF',
@@ -26,6 +32,10 @@ function App(): JSX.Element {
   };
 
   const textColor = { color: 'green' };
+
+  if (showStories && !isWeb) {
+    return <Stories />;
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
