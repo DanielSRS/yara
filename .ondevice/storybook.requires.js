@@ -49,7 +49,9 @@ try {
 
 const getStories = () => {
   return {
+    "./src/components/Download/Torrent/Torrent.stories.tsx": require("../src/components/Download/Torrent/Torrent.stories.tsx"),
     "./src/components/SButton/SButton.stories.tsx": require("../src/components/SButton/SButton.stories.tsx"),
+    "./src/components/Text/DefaultText/DefaultText.stories.tsx": require("../src/components/Text/DefaultText/DefaultText.stories.tsx"),
   };
 };
 

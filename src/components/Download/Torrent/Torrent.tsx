@@ -136,7 +136,7 @@ interface TwoColumnTextProps {
 const TwoColumnText = (props: TwoColumnTextProps) => {
   const { children } = props;
   return (
-    <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'space-between' }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
       {}
       <DefaultText>{children[0]}</DefaultText>
       <DefaultText>{children[1]}</DefaultText>
