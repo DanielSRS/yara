@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { DefaultText } from "../../Text";
 
 interface Theme {
@@ -13,6 +13,8 @@ interface TorrentDownloadProps {
   title: string;
   /** Tema do componete */
   theme?: Theme;
+  /** Função de callback ao clicar no card do torrent */
+  onPress?: () => void,
 }
 
 const defaultTheme: Theme = {
@@ -22,7 +24,7 @@ const defaultTheme: Theme = {
 };
 
 export const TorrentDownload = (props: TorrentDownloadProps) => {
-  const { title, theme: { colors: { background } } = defaultTheme } = props;
+  const { title, theme: { colors: { background } } = defaultTheme, onPress } = props;
   const numberOfFiles = 0;
   const size = 0;
   const elapsedTime = 0;
@@ -38,7 +40,7 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const label_Remaining = 'Remaining time'
   const label_Ratio = 'Ratio'
   return (
-    <View style={[styles.container, { backgroundColor: background }]}>
+    <TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor: background }]}>
       {}
       <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
       <Separator />
@@ -115,7 +117,7 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         {' '}
       </TwoColumnText>
       {}
-    </View>
+    </TouchableOpacity>
   );
 }
 
