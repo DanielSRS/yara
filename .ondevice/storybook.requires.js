@@ -49,6 +49,7 @@ try {
 
 const getStories = () => {
   return {
+    "./src/components/Download/List/DownloadList.stories.tsx": require("../src/components/Download/List/DownloadList.stories.tsx"),
     "./src/components/Download/Torrent/Torrent.stories.tsx": require("../src/components/Download/Torrent/Torrent.stories.tsx"),
     "./src/components/File/File.stories.tsx": require("../src/components/File/File.stories.tsx"),
     "./src/components/SButton/SButton.stories.tsx": require("../src/components/SButton/SButton.stories.tsx"),
