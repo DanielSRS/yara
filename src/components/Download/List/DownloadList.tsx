@@ -2,6 +2,7 @@ import React from "react";
 import { Platform, ScrollView, StyleSheet, View } from "react-native";
 import Animated, { SlideInDown, SlideInLeft } from 'react-native-reanimated';
 import { TorrentDownload } from "../Torrent/Torrent";
+import { AnimatedView } from "../../../Libs/Animated/View";
 
 
 interface DownloadListProps {
@@ -17,11 +18,11 @@ export function DownloadList(props: DownloadListProps) {
       <View style={styles.contentContainer}>
         {downloads.map((data, index) => {
           return (
-            <Animated.View
-              entering={SlideInLeft.delay(100 * index <= 5 ? index : 1).springify()}
+            <AnimatedView
+              // entering={SlideInLeft.delay(100 * index <= 5 ? index : 1).springify()}
               key={index.toString()}>
               <TorrentDownload title={data} />
-            </Animated.View>
+            </AnimatedView>
           );
         })}
       </View>
