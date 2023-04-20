@@ -150,6 +150,7 @@ const TwoColumnText = (props: TwoColumnTextProps) => {
 const styles = StyleSheet.create({
   container: {
     maxWidth: 230,
+    minWidth: 180,
     paddingHorizontal: 10,
     paddingTop: 10,
     borderRadius: 8,

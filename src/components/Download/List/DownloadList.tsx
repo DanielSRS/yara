@@ -13,9 +13,8 @@ export function DownloadList(props: DownloadListProps) {
 
   return (
     <ScrollView
-      contentContainerStyle={styles.scrollContentContainer}
       style={styles.container}>
-      <View style={styles.flex1}>
+      <View style={styles.contentContainer}>
         {downloads.map((data, index) => {
           return (
             <Animated.View
@@ -36,14 +35,12 @@ const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: 'pink'
   },
-  scrollContentContainer: {
-    //
-  },
-  flex1: {
+  contentContainer: {
     flex: 1,
     // backgroundColor: 'gray',
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
+    padding: 10,
   },
 });
