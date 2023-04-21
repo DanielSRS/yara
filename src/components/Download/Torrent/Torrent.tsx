@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { DefaultText } from "../../Text";
+import { Caption, DefaultText } from "../../Text";
 import { SurfaceCard } from "../../Atoms";
 
 interface Theme {
@@ -41,33 +41,49 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const label_Remaining = 'Remaining time'
   const label_Ratio = 'Ratio'
   return (
-    <SurfaceCard>
-      <TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor: background }]}>
+    <SurfaceCard style={[styles.container]}>
+      <TouchableOpacity onPress={onPress}>
         <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
         <Separator />
 
         {/** Numero de arquivos sendo baixados */}
         <TwoColumnText>
-          {label_NumberOfFiles}
-          {numberOfFiles}
+          <Caption>
+            {label_NumberOfFiles}
+          </Caption>
+          <Caption>
+            {numberOfFiles}
+          </Caption>
         </TwoColumnText>
 
         {/** Tamanho do download */}
         <TwoColumnText>
-          {label_Size}
-          {size}
+          <Caption>
+            {label_Size}
+          </Caption>
+          <Caption>
+            {size}
+          </Caption>
         </TwoColumnText>
 
         {/** Tempo decorrido */}
         <TwoColumnText>
-          {label_ElapsedTime}
-          {elapsedTime}
+          <Caption>
+            {label_ElapsedTime}
+          </Caption>
+          <Caption>
+            {elapsedTime}
+          </Caption>
         </TwoColumnText>
 
         {/** Tempo restante */}
         <TwoColumnText>
-          {label_Remaining}
-          {remainingTime}
+          <Caption>
+            {label_Remaining}
+          </Caption>
+          <Caption>
+            {remainingTime}
+          </Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
@@ -78,14 +94,14 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
 
         {/** Velocidade de download */}
         <TwoColumnText>
-          {`   ${downloadSpeed} KB/s`}
-          {totalDownloaded}
+          <Caption>{`   ${downloadSpeed} KB/s`}</Caption>
+          <Caption>{totalDownloaded}</Caption>
         </TwoColumnText>
 
         {/** Velocidade de upload */}
         <TwoColumnText>
-          {`   ${uploadSpeed} KB/s`}
-          {totalUploaded}
+          <Caption>{`   ${uploadSpeed} KB/s`}</Caption>
+          <Caption>{totalUploaded}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
@@ -96,8 +112,12 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
 
         {/** Ratio */}
         <TwoColumnText>
-          {label_Ratio}
-          {'-'}
+          <Caption>
+            {label_Ratio}
+          </Caption>
+          <Caption>
+            {'-'}
+          </Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
@@ -108,7 +128,7 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
 
         {/** Status */}
         <TwoColumnText>
-          <DefaultText style={styles.status}>{'downloading'}</DefaultText>
+          <Caption style={styles.status}>{'downloading'}</Caption>
           {''}
         </TwoColumnText>
 
@@ -155,7 +175,7 @@ const styles = StyleSheet.create({
     minWidth: 180,
     paddingHorizontal: 10,
     paddingTop: 10,
-    borderRadius: 8,
+    alignSelf: 'flex-start',
   },
   title: {
     textAlign: 'center',
