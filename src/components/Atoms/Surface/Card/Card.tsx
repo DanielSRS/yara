@@ -3,20 +3,20 @@ import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 
 type SurfaceCardProps = {
   children?: React.ReactNode;
-  styles?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 };
 
 export function SurfaceCard(props: SurfaceCardProps) {
-  const { styles } = props;
+  const { style } = props;
   return (
-    <View {...props} style={[style.defaultStyles, styles]}>
+    <View {...props} style={[styles.defaultStyles, style]}>
       {}
       {}
     </View>
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   defaultStyles: {
     /** Strock */
     borderWidth: 1,
