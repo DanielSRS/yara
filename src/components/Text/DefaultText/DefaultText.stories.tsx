@@ -3,7 +3,7 @@ import React from 'react';
 import { DefaultText } from './DefaultText';
 
 export default {
-  title: 'components/DefaultText',
+  title: 'components/Text/DefaultText',
   component: DefaultText,
   args: {
     children: 'text exemple',
