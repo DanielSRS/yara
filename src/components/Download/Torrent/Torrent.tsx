@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { DefaultText } from "../../Text";
+import { SurfaceCard } from "../../Atoms";
 
 interface Theme {
   colors: {
@@ -40,84 +41,85 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const label_Remaining = 'Remaining time'
   const label_Ratio = 'Ratio'
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor: background }]}>
-      {}
-      <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
-      <Separator />
+    <SurfaceCard>
+      <TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor: background }]}>
+        <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
+        <Separator />
 
-      {/** Numero de arquivos sendo baixados */}
-      <TwoColumnText>
-        {label_NumberOfFiles}
-        {numberOfFiles}
-      </TwoColumnText>
+        {/** Numero de arquivos sendo baixados */}
+        <TwoColumnText>
+          {label_NumberOfFiles}
+          {numberOfFiles}
+        </TwoColumnText>
 
-      {/** Tamanho do download */}
-      <TwoColumnText>
-        {label_Size}
-        {size}
-      </TwoColumnText>
+        {/** Tamanho do download */}
+        <TwoColumnText>
+          {label_Size}
+          {size}
+        </TwoColumnText>
 
-      {/** Tempo decorrido */}
-      <TwoColumnText>
-        {label_ElapsedTime}
-        {elapsedTime}
-      </TwoColumnText>
+        {/** Tempo decorrido */}
+        <TwoColumnText>
+          {label_ElapsedTime}
+          {elapsedTime}
+        </TwoColumnText>
 
-      {/** Tempo restante */}
-      <TwoColumnText>
-        {label_Remaining}
-        {remainingTime}
-      </TwoColumnText>
+        {/** Tempo restante */}
+        <TwoColumnText>
+          {label_Remaining}
+          {remainingTime}
+        </TwoColumnText>
 
-      {/** Espaço em branco */}
-      <TwoColumnText>
-        {' '}
-        {' '}
-      </TwoColumnText>
+        {/** Espaço em branco */}
+        <TwoColumnText>
+          {' '}
+          {' '}
+        </TwoColumnText>
 
-      {/** Velocidade de download */}
-      <TwoColumnText>
-        {`   ${downloadSpeed} KB/s`}
-        {totalDownloaded}
-      </TwoColumnText>
+        {/** Velocidade de download */}
+        <TwoColumnText>
+          {`   ${downloadSpeed} KB/s`}
+          {totalDownloaded}
+        </TwoColumnText>
 
-      {/** Velocidade de upload */}
-      <TwoColumnText>
-        {`   ${uploadSpeed} KB/s`}
-        {totalUploaded}
-      </TwoColumnText>
+        {/** Velocidade de upload */}
+        <TwoColumnText>
+          {`   ${uploadSpeed} KB/s`}
+          {totalUploaded}
+        </TwoColumnText>
 
-      {/** Espaço em branco */}
-      <TwoColumnText>
-        {' '}
-        {' '}
-      </TwoColumnText>
+        {/** Espaço em branco */}
+        <TwoColumnText>
+          {' '}
+          {' '}
+        </TwoColumnText>
 
-      {/** Ratio */}
-      <TwoColumnText>
-        {label_Ratio}
-        {'-'}
-      </TwoColumnText>
+        {/** Ratio */}
+        <TwoColumnText>
+          {label_Ratio}
+          {'-'}
+        </TwoColumnText>
 
-      {/** Espaço em branco */}
-      <TwoColumnText>
-        {' '}
-        {' '}
-      </TwoColumnText>
+        {/** Espaço em branco */}
+        <TwoColumnText>
+          {' '}
+          {' '}
+        </TwoColumnText>
 
-      {/** Status */}
-      <TwoColumnText>
-        <DefaultText style={styles.status}>{'downloading'}</DefaultText>
-        {''}
-      </TwoColumnText>
+        {/** Status */}
+        <TwoColumnText>
+          <DefaultText style={styles.status}>{'downloading'}</DefaultText>
+          {''}
+        </TwoColumnText>
 
-      {/** Espaço em branco */}
-      <TwoColumnText>
-        {' '}
-        {' '}
-      </TwoColumnText>
-      {}
-    </TouchableOpacity>
+        {/** Espaço em branco */}
+        <TwoColumnText>
+          {' '}
+          {' '}
+        </TwoColumnText>
+        {}
+      </TouchableOpacity>
+    </SurfaceCard>
   );
 }
 
