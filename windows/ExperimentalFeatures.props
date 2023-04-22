@@ -34,6 +34,19 @@
     <UseExperimentalNuget>false</UseExperimentalNuget>
 
     <ReactExperimentalFeaturesSet>true</ReactExperimentalFeaturesSet>
+
+    <!-- Specify WinRT namespaces to consume -->
+    <RnWinRTParameters>
+      -include Windows.Foundation
+      -include Windows.UI.StartScreen
+      -include Windows.UI.ViewManagement
+      -include Windows.Storage
+      -include Windows.Security.Cryptography.CryptographicBuffer
+      -include Windows.Security.Cryptography.ICryptographicBufferStatics
+      -include Windows.Security.Cryptography.BinaryStringEncoding
+      -include Windows.UI.Notifications
+      -include Windows.Data.Xml.Dom
+    </RnWinRTParameters>
   
   </PropertyGroup>
 

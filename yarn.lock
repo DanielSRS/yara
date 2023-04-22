@@ -12702,6 +12702,11 @@ react-native-windows@0.71.1:
     whatwg-fetch "^3.0.0"
     ws "^6.2.2"
 
+react-native-winrt@0.71:
+  version "0.71.1"
+  resolved "https://registry.yarnpkg.com/react-native-winrt/-/react-native-winrt-0.71.1.tgz#0e71fb9cf61032b03c28331480b2a30d97e83966"
+  integrity sha512-JCUhyqDkXCTeKBoeztUZoU7UZ56KVqDYdK6nXUEq+pS97BI0oK/WlaFgLan1Y9O/QRLP40REqesPgNt1DWb+sw==
+
 react-native@0.71.1:
   version "0.71.1"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.71.1.tgz#72b45af2b29e3d5a660c63425ab5003bf2112f99"
