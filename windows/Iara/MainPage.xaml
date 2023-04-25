@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
     <react:ReactRootView 
-        x:Name="ReactRootView"
+        x:Name="reactRootView"
         ComponentName="Iara"
         Background="Transparent"
         MinHeight="400"/>
