@@ -52,6 +52,7 @@ const getStories = () => {
     "./src/components/Atoms/Surface/Card/Card.stories.tsx": require("../src/components/Atoms/Surface/Card/Card.stories.tsx"),
     "./src/components/Download/List/DownloadList.stories.tsx": require("../src/components/Download/List/DownloadList.stories.tsx"),
     "./src/components/Download/Torrent/Torrent.stories.tsx": require("../src/components/Download/Torrent/Torrent.stories.tsx"),
+    "./src/components/Drawer/Drawer.stories.ts": require("../src/components/Drawer/Drawer.stories.ts"),
     "./src/components/File/File.stories.tsx": require("../src/components/File/File.stories.tsx"),
     "./src/components/FileList/FileList.stories.tsx": require("../src/components/FileList/FileList.stories.tsx"),
     "./src/components/Text/Caption/DefaultText.stories.tsx": require("../src/components/Text/Caption/DefaultText.stories.tsx"),

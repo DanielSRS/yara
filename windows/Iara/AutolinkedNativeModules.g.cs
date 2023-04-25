@@ -5,6 +5,9 @@ using System.Collections.Generic;
 // Namespaces from react-native-screens
 using RNScreens;
 
+// Namespaces from react-native-svg
+using RNSVG;
+
 // Namespaces from react-native-webview
 using ReactNativeWebView;
 
@@ -28,6 +31,8 @@ namespace Microsoft.ReactNative.Managed
         { 
             // IReactPackageProviders from react-native-screens
             packageProviders.Add(new RNScreens.ReactPackageProvider());
+            // IReactPackageProviders from react-native-svg
+            packageProviders.Add(new RNSVG.ReactPackageProvider());
             // IReactPackageProviders from react-native-webview
             packageProviders.Add(new ReactNativeWebView.ReactPackageProvider());
             // IReactPackageProviders from react-native-winrt

@@ -136,6 +136,11 @@
         "resolved": "2.2.9",
         "contentHash": "qF6RRZKaflI+LR1YODNyWYjq5YoX8IJ2wx5y8O+AW2xO+1t/Q6Mm+jQ38zJbWnmXbrcOqUYofn7Y3/KC6lTLBQ=="
       },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
+      },
       "common": {
         "type": "Project"
       },
@@ -203,6 +208,14 @@
           "Microsoft.UI.Xaml": "[2.7.0, )"
         }
       },
+      "rnsvg": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.ReactNative": "[1.0.0, )",
+          "Microsoft.UI.Xaml": "[2.7.0, )",
+          "Win2D.uwp": "[1.26.0, )"
+        }
+      },
       "sliderwindows": {
         "type": "Project",
         "dependencies": {
@@ -236,6 +249,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "/q9U+SqJTVrocU7CHFd1D4ac2jqPc4U8kPy8F147Li3XGf0Ce9v6UKJqf7nskR+XgVi3IVfUJUcjWLVskG5ZKw=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     },
     "UAP,Version=v10.0.16299/win10-arm-aot": {
@@ -256,6 +274,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "tN7AmnRPUuu29nh9ulL/UGMdzayAe/AQNhM7+fQNKuT4jUlxc61Ilf2djKNJ5MvK8wY69KH0Iz9Yy5+95rB+DQ=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     },
     "UAP,Version=v10.0.16299/win10-arm64-aot": {
@@ -276,6 +299,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "gupfeyxXmaOyqLps1gGLh4Lzh5Wee6iuKpgZ70l2nmoHtzqCdk9aK4i+03259M6X2r7BXoIjJJml0paXBQY1kw=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     },
     "UAP,Version=v10.0.16299/win10-x64": {
@@ -296,6 +324,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "JjnUToWq2LQfNKtiqld4YYkgUcC3tCQ0RvRKiut0B7AgS+Eo/HnI/viFiH4FoNG7pFvcWoKimLctj06IgJoiyA=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     },
     "UAP,Version=v10.0.16299/win10-x64-aot": {
@@ -316,6 +349,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "XTmgQZIB3JbzwVE0h+GN//VniFM4MmSWjxjtK7g5zypTwtpuj68oulxWqN5R3F19GaUzT+EFdfKXKEWI73/qwQ=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     },
     "UAP,Version=v10.0.16299/win10-x86": {
@@ -336,6 +374,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "BckZHjaqBTSEtvzj0aliq3DQvLOT7C4ei4L8pCgcD3k/MZpECBg8kUsixDanwYtRot+jNXxc6LF5J87cyigGfA=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     },
     "UAP,Version=v10.0.16299/win10-x86-aot": {
@@ -356,6 +399,11 @@
         "type": "Transitive",
         "resolved": "6.2.9",
         "contentHash": "/FxhZW8KuY7aiRcC1Opk5+48Meg1PYj36LcLVuX6Ty+n4HpMf7xxvNvp0EzSLzW/Ibzqt+iaRWqfOZqiTFZG5g=="
+      },
+      "Win2D.uwp": {
+        "type": "Transitive",
+        "resolved": "1.26.0",
+        "contentHash": "smA/NJWM3ruhWeKPHmCyW8PX8w1ckD9SN7qWEOePe/iuFKvLyC8govCHq/F40hQCRs8zBqHWaWBpekTnQuXx6w=="
       }
     }
   }
