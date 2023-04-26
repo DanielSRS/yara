@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Animated, LayoutChangeEvent, Platform, RegisteredStyle, StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-native";
 import { SurfaceApp } from "../Atoms";
 
 interface DrawerProps {}
@@ -23,11 +23,13 @@ export function Drawer(props: DrawerProps) {
 function MenuArea() {
   const currentWidth = useRef(50);
   const width = useRef(new Animated.Value(50));
+  const [widthWeb, setWidhtWeb] = useState(50);
   const [toggleHover, setToggleHover] = useState(false);
   const mouseEvents = {
     onMouseEnter: () => setToggleHover(true),
     onMouseLeave: () => setToggleHover(false),
   }
+  const isWeb = Platform.OS === 'web';
 
   /**
    * Abre e fecha o drawer de forma animada
@@ -35,11 +37,19 @@ function MenuArea() {
   const toggleMenu = () => {
     /** Se o drawer estiver fechado */
     if (currentWidth.current >= 50 && currentWidth.current <= 60) {
+      if (isWeb) {
+        setWidhtWeb(320);
+        return;
+      }
       /** Abre o drawer com uma animação */
       Animated.spring(width.current, {
         toValue: 320,
         useNativeDriver: false,
       }).start();
+      return;
+    }
+    if (isWeb) {
+      setWidhtWeb(50);
       return;
     }
     /** Do contrario, fecha o drawer com uma animação */
@@ -49,10 +59,23 @@ function MenuArea() {
     }).start();
   }
 
+  const AnimatedView = (props: {
+    children?: React.ReactNode;
+    style?: StyleProp<ViewStyle>;
+    onLayout?: ((event: LayoutChangeEvent) => void);
+    animatedStyle?: false | Animated.Value | RegisteredStyle<ViewStyle> | Animated.AnimatedInterpolation<string | number> | Animated.WithAnimatedObject<ViewStyle> | Animated.WithAnimatedArray<ViewStyle> | null | undefined;
+  }) => {
+    if (isWeb) {
+      return <View {...props} />
+    }
+    return <Animated.View {...props} style={[props.style, props.animatedStyle]} />
+  }
+
   return (
-    <Animated.View
+    <AnimatedView
       onLayout={e => currentWidth.current = e.nativeEvent.layout.width}
-      style={[styles.menuArea, { width: width.current }]}>
+      animatedStyle={{ width: width.current }}
+      style={[styles.menuArea, { width: widthWeb }]}>
       <View
         style={{
           height: 40,
@@ -82,7 +105,7 @@ function MenuArea() {
           </TouchableOpacity>
       </View>
       {}
-    </Animated.View>
+    </AnimatedView>
   );
 }
 
