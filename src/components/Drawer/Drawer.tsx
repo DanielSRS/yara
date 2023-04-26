@@ -23,6 +23,11 @@ export function Drawer(props: DrawerProps) {
 function MenuArea() {
   const currentWidth = useRef(50);
   const width = useRef(new Animated.Value(50));
+  const [toggleHover, setToggleHover] = useState(false);
+  const mouseEvents = {
+    onMouseEnter: () => setToggleHover(true),
+    onMouseLeave: () => setToggleHover(false),
+  }
 
   /**
    * Abre e fecha o drawer de forma animada
@@ -48,20 +53,34 @@ function MenuArea() {
     <Animated.View
       onLayout={e => currentWidth.current = e.nativeEvent.layout.width}
       style={[styles.menuArea, { width: width.current }]}>
-      <TouchableOpacity
-        onPress={toggleMenu}
+      <View
         style={{
-          height: 41,
+          height: 40,
+          width: 48,
           justifyContent: 'center',
-          paddingHorizontal: 15,
-          paddingVertical: 10,
-          overflow: 'hidden',
+          alignItems: 'center',
+          // backgroundColor: 'red',
         }}>
-        <Text style={{
-          fontSize: 25,
-          marginTop: -15,
-        }}>...</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={toggleMenu}
+            {...mouseEvents}
+            style={{
+              width: 38,
+              height: 34,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 3,
+              backgroundColor: toggleHover ? 'rgba(255, 255, 255, 0.0605)' : undefined,
+            }}
+            >
+            <Text style={{
+              fontSize: 16,
+              // marginTop: -15,
+              fontFamily: 'Segoe Fluent Icons',
+              // backgroundColor: 'rgba(255, 255, 255, 0.6)'
+            }}></Text>
+          </TouchableOpacity>
+      </View>
       {}
     </Animated.View>
   );
@@ -80,6 +99,9 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    borderTopLeftRadius: 7,
+    paddingHorizontal: 20,
+    paddingTop: 20,
     //backgroundColor: 'gray',
   },
 });
