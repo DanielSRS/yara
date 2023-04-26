@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SurfaceApp } from "../Atoms";
 
 interface DrawerProps {}
 
@@ -11,10 +12,10 @@ export function Drawer(props: DrawerProps) {
       <MenuArea />
       {}
       {/** Area de conteúdo */}
-      <View style={styles.content}>
+      <SurfaceApp style={styles.content}>
         {}
         <Text>Conteudo</Text>
-      </View>
+      </SurfaceApp>
     </View>
   );
 }
