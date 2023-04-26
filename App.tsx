@@ -14,7 +14,7 @@ import {
   ViewStyle,
   Platform,
 } from 'react-native';
-import { Titlebar } from './src/components';
+import { Drawer, Titlebar } from './src/components';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,6 +35,7 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       {Platform.OS !== 'windows' ? null : <Titlebar />}
+      <Drawer />
     </SafeAreaView>
   );
 }
