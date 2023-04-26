@@ -2,9 +2,12 @@ import React, { useRef, useState } from "react";
 import { Animated, LayoutChangeEvent, Platform, RegisteredStyle, StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-native";
 import { SurfaceApp } from "../Atoms";
 
-interface DrawerProps {}
+interface DrawerProps {
+  children?: React.ReactNode;
+}
 
 export function Drawer(props: DrawerProps) {
+  const { children } = props;
 
   return (
     <View style={styles.container}>
@@ -13,8 +16,7 @@ export function Drawer(props: DrawerProps) {
       {}
       {/** Area de conteúdo */}
       <SurfaceApp style={styles.content}>
-        {}
-        <Text>Conteudo</Text>
+        {children}
       </SurfaceApp>
     </View>
   );
@@ -123,8 +125,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     borderTopLeftRadius: 7,
-    paddingHorizontal: 20,
-    paddingTop: 20,
     //backgroundColor: 'gray',
   },
 });
