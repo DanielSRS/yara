@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import { StyleProp, StyleSheet, View, ViewStyle, useColorScheme } from "react-native";
 
 type SurfaceAppProps = {
   children?: React.ReactNode;
@@ -8,19 +8,28 @@ type SurfaceAppProps = {
 
 export function SurfaceApp(props: SurfaceAppProps) {
   const { style } = props;
-  return <View {...props} style={[styles.defaultStyles, style]} />;
+
+  const isDarkMode = useColorScheme() === 'dark';
+  const defaultStyles = isDarkMode ? styles.darkStyles : styles.lightStyles;
+
+  return <View {...props} style={[defaultStyles, style]} />;
 }
 
 const styles = StyleSheet.create({
-  defaultStyles: {
+  darkStyles: {
     /** Strock */
     borderWidth: 1,
-    // borderColor: 'rgba(0, 0, 0, 0.0578)', // light
     borderColor: 'rgba(0, 0, 0, 0.1)', // dark
-    // borderRadius: 7,
 
     /** Fill */
-    // backgroundColor:  'rgba(255, 255, 255, 0.7)', // light
     backgroundColor:  'rgba(58, 58, 58, 0.3)', // dark
+  },
+  lightStyles: {
+    /** Strock */
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.0578)', // light
+
+    /** Fill */
+    backgroundColor:  'rgba(255, 255, 255, 0.5)', // light
   },
 });
