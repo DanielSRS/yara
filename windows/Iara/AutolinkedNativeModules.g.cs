@@ -5,6 +5,9 @@ using System.Collections.Generic;
 // Namespaces from react-native-linear-gradient
 using BVLinearGradient;
 
+// Namespaces from react-native-localize
+using RNLocalize;
+
 // Namespaces from react-native-screens
 using RNScreens;
 
@@ -34,6 +37,8 @@ namespace Microsoft.ReactNative.Managed
         { 
             // IReactPackageProviders from react-native-linear-gradient
             packageProviders.Add(new BVLinearGradient.ReactPackageProvider());
+            // IReactPackageProviders from react-native-localize
+            packageProviders.Add(new RNLocalize.ReactPackageProvider());
             // IReactPackageProviders from react-native-screens
             packageProviders.Add(new RNScreens.ReactPackageProvider());
             // IReactPackageProviders from react-native-svg
