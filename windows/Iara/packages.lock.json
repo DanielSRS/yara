@@ -148,6 +148,13 @@
           "Microsoft.UI.Xaml": "[2.7.0, )"
         }
       },
+      "checkboxwindows": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.ReactNative": "[1.0.0, )",
+          "Microsoft.UI.Xaml": "[2.7.0, )"
+        }
+      },
       "common": {
         "type": "Project"
       },

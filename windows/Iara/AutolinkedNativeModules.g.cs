@@ -2,6 +2,9 @@
 
 using System.Collections.Generic;
 
+// Namespaces from @react-native-community/checkbox
+using CheckboxWindows;
+
 // Namespaces from react-native-linear-gradient
 using BVLinearGradient;
 
@@ -35,6 +38,8 @@ namespace Microsoft.ReactNative.Managed
     {
         internal static void RegisterAutolinkedNativeModulePackages(IList<IReactPackageProvider> packageProviders)
         { 
+            // IReactPackageProviders from @react-native-community/checkbox
+            packageProviders.Add(new CheckboxWindows.ReactPackageProvider());
             // IReactPackageProviders from react-native-linear-gradient
             packageProviders.Add(new BVLinearGradient.ReactPackageProvider());
             // IReactPackageProviders from react-native-localize

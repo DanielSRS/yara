@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@react-native-community/checkbox": "0.5.15",
     "@react-navigation/bottom-tabs": "6.5.5",
     "@react-navigation/drawer": "6.6.0",
     "@react-navigation/material-top-tabs": "6.6.0",
