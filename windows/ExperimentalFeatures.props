@@ -49,6 +49,9 @@
       -include Windows.ApplicationModel.Core
       -include Windows.System.Diagnostics
     </RnWinRTParameters>
+
+    <!-- Atualiza versão da winui -->
+    <WinUI2xVersion>2.7.0</WinUI2xVersion>
   
   </PropertyGroup>
 

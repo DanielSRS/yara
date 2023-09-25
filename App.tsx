@@ -15,6 +15,7 @@ import {
   Platform,
 } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
+import { DownloadList } from './src/components/Download/List/DownloadList';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,7 +36,9 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       {Platform.OS !== 'windows' ? null : <Titlebar />}
-      <Drawer />
+      <Drawer>
+        <DownloadList downloads={['t1', 't2', 't3', 't4', 't5']} />
+      </Drawer>
     </SafeAreaView>
   );
 }
