@@ -10,19 +10,20 @@ import {
   SafeAreaView,
   StatusBar,
   useColorScheme,
-  Text,
   StyleProp,
   ViewStyle,
+  Platform,
 } from 'react-native';
+import { Drawer, Titlebar } from './src/components';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const isWindows = Platform.OS === 'windows';
+  const darkBgColor = isDarkMode ? '#202020' : '#F3F3F3';
 
   const backgroundStyle: StyleProp<ViewStyle> = {
-    backgroundColor: isDarkMode ? '#000' : '#FFF',
+    backgroundColor: isWindows ? 'transparent' : darkBgColor,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   };
 
   const textColor = { color: 'green' };
@@ -33,9 +34,8 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      {}
-      <Text style={textColor}>Android, Ios, Windows and web</Text>
-      {}
+      {Platform.OS !== 'windows' ? null : <Titlebar />}
+      <Drawer />
     </SafeAreaView>
   );
 }

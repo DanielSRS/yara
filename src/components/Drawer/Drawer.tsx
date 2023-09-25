@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Animated, LayoutChangeEvent, Platform, RegisteredStyle, StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-native";
+import { SurfaceApp } from "../Atoms";
 
-interface DrawerProps {}
+interface DrawerProps {
+  children?: React.ReactNode;
+}
 
 export function Drawer(props: DrawerProps) {
+  const { children } = props;
 
   return (
     <View style={styles.container}>
@@ -11,10 +15,9 @@ export function Drawer(props: DrawerProps) {
       <MenuArea />
       {}
       {/** Area de conteúdo */}
-      <View style={styles.content}>
-        {}
-        <Text>Conteudo</Text>
-      </View>
+      <SurfaceApp style={styles.content}>
+        {children}
+      </SurfaceApp>
     </View>
   );
 }
@@ -22,6 +25,13 @@ export function Drawer(props: DrawerProps) {
 function MenuArea() {
   const currentWidth = useRef(50);
   const width = useRef(new Animated.Value(50));
+  const [widthWeb, setWidhtWeb] = useState(50);
+  const [toggleHover, setToggleHover] = useState(false);
+  const mouseEvents = {
+    onMouseEnter: () => setToggleHover(true),
+    onMouseLeave: () => setToggleHover(false),
+  }
+  const isWeb = Platform.OS === 'web';
 
   /**
    * Abre e fecha o drawer de forma animada
@@ -29,11 +39,19 @@ function MenuArea() {
   const toggleMenu = () => {
     /** Se o drawer estiver fechado */
     if (currentWidth.current >= 50 && currentWidth.current <= 60) {
+      if (isWeb) {
+        setWidhtWeb(320);
+        return;
+      }
       /** Abre o drawer com uma animação */
       Animated.spring(width.current, {
         toValue: 320,
         useNativeDriver: false,
       }).start();
+      return;
+    }
+    if (isWeb) {
+      setWidhtWeb(50);
       return;
     }
     /** Do contrario, fecha o drawer com uma animação */
@@ -43,26 +61,53 @@ function MenuArea() {
     }).start();
   }
 
+  const AnimatedView = (props: {
+    children?: React.ReactNode;
+    style?: StyleProp<ViewStyle>;
+    onLayout?: ((event: LayoutChangeEvent) => void);
+    animatedStyle?: false | Animated.Value | RegisteredStyle<ViewStyle> | Animated.AnimatedInterpolation<string | number> | Animated.WithAnimatedObject<ViewStyle> | Animated.WithAnimatedArray<ViewStyle> | null | undefined;
+  }) => {
+    if (isWeb) {
+      return <View {...props} />
+    }
+    return <Animated.View {...props} style={[props.style, props.animatedStyle]} />
+  }
+
   return (
-    <Animated.View
+    <AnimatedView
       onLayout={e => currentWidth.current = e.nativeEvent.layout.width}
-      style={[styles.menuArea, { width: width.current }]}>
-      <TouchableOpacity
-        onPress={toggleMenu}
+      animatedStyle={{ width: width.current }}
+      style={[styles.menuArea, { width: widthWeb }]}>
+      <View
         style={{
-          height: 41,
+          height: 40,
+          width: 48,
           justifyContent: 'center',
-          paddingHorizontal: 15,
-          paddingVertical: 10,
-          overflow: 'hidden',
+          alignItems: 'center',
+          // backgroundColor: 'red',
         }}>
-        <Text style={{
-          fontSize: 25,
-          marginTop: -15,
-        }}>...</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={toggleMenu}
+            {...mouseEvents}
+            style={{
+              width: 38,
+              height: 34,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 3,
+              backgroundColor: toggleHover ? 'rgba(255, 255, 255, 0.0605)' : undefined,
+            }}
+            >
+            <Text style={{
+              fontSize: 16,
+              // marginTop: -15,
+              fontFamily: 'Segoe Fluent Icons',
+              // backgroundColor: 'rgba(255, 255, 255, 0.6)'
+            }}></Text>
+          </TouchableOpacity>
+      </View>
       {}
-    </Animated.View>
+    </AnimatedView>
   );
 }
 
@@ -79,6 +124,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    borderTopLeftRadius: 7,
     //backgroundColor: 'gray',
   },
 });

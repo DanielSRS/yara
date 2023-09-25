@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="8b4405dd-d451-4050-8e57-1310c57dff51"
+    Name="1b550f51-445e-4ea5-88ee-1f8901725aa8"
     Publisher="CN=dsrs"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="8b4405dd-d451-4050-8e57-1310c57dff51" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1b550f51-445e-4ea5-88ee-1f8901725aa8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Iara</DisplayName>
