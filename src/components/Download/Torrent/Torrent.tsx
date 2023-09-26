@@ -41,8 +41,8 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const label_Remaining = 'Remaining time'
   const label_Ratio = 'Ratio'
   return (
-    <SurfaceCard style={[styles.container]}>
-      <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
+      <SurfaceCard style={[styles.container]}>
         <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
         <Separator />
 
@@ -138,8 +138,8 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
           {' '}
         </TwoColumnText>
         {}
-      </TouchableOpacity>
-    </SurfaceCard>
+      </SurfaceCard>
+    </TouchableOpacity>
   );
 }
 
