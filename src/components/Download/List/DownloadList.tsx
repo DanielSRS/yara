@@ -1,6 +1,6 @@
 import React from "react";
-import { Platform, ScrollView, StyleSheet, View } from "react-native";
-import Animated, { SlideInDown, SlideInLeft } from 'react-native-reanimated';
+import { ScrollView, StyleSheet, View } from "react-native";
+// import Animated, { SlideInDown, SlideInLeft } from 'react-native-reanimated';
 import { TorrentDownload } from "../Torrent/Torrent";
 import { AnimatedView } from "../../../Libs/Animated/View";
 

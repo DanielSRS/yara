@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleProp, ViewStyle, View } from "react-native";
+import { StyleProp, ViewStyle } from "react-native";
+import Animated, { SlideInLeft } from "react-native-reanimated";
 
 interface AnimatedViewProps {
   children: React.ReactNode;
@@ -8,6 +9,6 @@ interface AnimatedViewProps {
 
 export function AnimatedView(props: AnimatedViewProps) {
   return (
-    <View {...props} />
+    <Animated.View {...props} entering={SlideInLeft.springify()} />
   );
 }

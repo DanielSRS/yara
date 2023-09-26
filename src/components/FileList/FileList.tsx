@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 // import Animated, { SlideInDown, SlideInLeft } from 'react-native-reanimated';
 import { AnimatedView } from "../../Libs";
 import { File } from "../../components";
