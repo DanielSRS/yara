@@ -56,6 +56,7 @@ const getStories = () => {
     "./src/components/Drawer/Drawer.stories.ts": require("../src/components/Drawer/Drawer.stories.ts"),
     "./src/components/File/File.stories.tsx": require("../src/components/File/File.stories.tsx"),
     "./src/components/FileList/FileList.stories.tsx": require("../src/components/FileList/FileList.stories.tsx"),
+    "./src/components/Statusbar/Statusbar.stories.tsx": require("../src/components/Statusbar/Statusbar.stories.tsx"),
     "./src/components/Text/Caption/DefaultText.stories.tsx": require("../src/components/Text/Caption/DefaultText.stories.tsx"),
     "./src/components/Text/DefaultText/DefaultText.stories.tsx": require("../src/components/Text/DefaultText/DefaultText.stories.tsx"),
   };

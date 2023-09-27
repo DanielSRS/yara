@@ -16,6 +16,8 @@ import {
 } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
 import { DownloadList } from './src/components/Download/List/DownloadList';
+import { Statusbar } from './src/components/Statusbar';
+import { StorybookUIRoot } from './.ondevice/Storybook';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -38,9 +40,14 @@ function App(): JSX.Element {
       {Platform.OS !== 'windows' ? null : <Titlebar />}
       <Drawer>
         <DownloadList downloads={['t1', 't2', 't3', 't4', 't5']} />
+        <Statusbar />
       </Drawer>
     </SafeAreaView>
   );
 }
 
-export default App;
+const showStorybook = () => {
+  return Platform.OS === 'android' || Platform.OS === 'ios';
+}
+
+export default showStorybook() ? StorybookUIRoot : App;
