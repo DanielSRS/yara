@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Animated, LayoutChangeEvent, Platform, RegisteredStyle, StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
+import { Animated, LayoutChangeEvent, Platform, RegisteredStyle, ScrollView, StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
 import { SurfaceApp } from "../Atoms";
 
 interface DrawerProps {
@@ -113,11 +113,18 @@ function MenuArea() {
       onLayout={e => currentWidth.current = e.nativeEvent.layout.width}
       animatedStyle={{ width: width.current }}
       style={[styles.menuArea, { width: widthWeb }]}>
-      {/* Botão de toggle do menu */}
-      <DrawerEntry onPress={toggleMenu} icon={''} />
-      <DrawerEntry icon={''}>
-        <EntryText>Configurações</EntryText>
-      </DrawerEntry>
+        {/* Parte de cima */}
+        <ScrollView>
+          {/* Botão de toggle do menu */}
+          <DrawerEntry onPress={toggleMenu} icon={''} />
+        </ScrollView>
+
+        {/* Parte de baixo */}
+        <View>
+          <DrawerEntry icon={''}>
+            <EntryText>Configurações</EntryText>
+          </DrawerEntry>
+        </View>
       {}
     </AnimatedView>
   );
