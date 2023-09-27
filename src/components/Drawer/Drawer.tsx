@@ -120,9 +120,12 @@ function MenuArea() {
         </ScrollView>
 
         {/* Parte de baixo */}
-        <View>
+        <View style={{ paddingBottom: 2 }}>
           <DrawerEntry icon={''}>
             <EntryText>Configurações</EntryText>
+          </DrawerEntry>
+          <DrawerEntry icon={''}>
+            <EntryText>Sobre</EntryText>
           </DrawerEntry>
         </View>
       {}
