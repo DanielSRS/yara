@@ -64,3 +64,6 @@ yarn-error.log
 
 # Visual Studio
 msbuild.binlog
+
+# yarn berry
+.yarn/

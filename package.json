@@ -92,5 +92,6 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
