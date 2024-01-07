@@ -19,7 +19,7 @@ import { DownloadList } from './src/components/Download/List/DownloadList';
 import { Statusbar } from './src/components/Statusbar';
 import { StorybookUIRoot } from './.ondevice/Storybook';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const isWindows = Platform.OS === 'windows';
   const darkBgColor = isDarkMode ? '#202020' : '#F3F3F3';
