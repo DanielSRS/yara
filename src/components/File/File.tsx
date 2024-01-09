@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from "react-native";
 import { DefaultText } from "../Text";
-import { SurfaceCard } from "..";
+import { SurfaceCard } from "../Atoms";
 
 interface FileProps {
   /** Nome do arquivo */
@@ -21,7 +21,7 @@ interface FileProps {
 /**
  * Exibe as informações de um arquivo de um torrent
  */
-export function File(props: FileProps) {
+function _File(props: FileProps & { cardStyle?: StyleProp<ViewStyle>; showStatus?: boolean }) {
   const {
     fileName,
     fileType,
@@ -29,11 +29,13 @@ export function File(props: FileProps) {
     progress,
     size,
     onPress,
+    cardStyle,
+    showStatus = false,
   } = props;
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <SurfaceCard style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <SurfaceCard style={[{ flexDirection: 'row', justifyContent: 'space-between' }, cardStyle]}>
         <View style={{ flexDirection: 'row' }}>
           {/** Left (image/icon) */}
           <View style={styles.fileIconContainer}>
@@ -59,12 +61,13 @@ export function File(props: FileProps) {
               // backgroundColor: 'green',
               flex: 1,
               justifyContent: 'center',
+              paddingRight: 10,
             }}>
               <DefaultText numberOfLines={1} style={{ fontSize: 12 }}>{fileName}</DefaultText>
             </View>
 
             {/* Bottom */}
-            <View style={{ paddingBottom: 4, justifyContent: 'center', flex: 1 }}>
+            <View style={{ paddingBottom: 4, justifyContent: 'center', flex: 1, display: !showStatus ? 'none' : undefined }}>
               {/* Status */}
               <View style={{
                 paddingHorizontal: 3,
@@ -108,6 +111,18 @@ export function File(props: FileProps) {
         </View>
       </SurfaceCard>
     </TouchableOpacity>
+  );
+}
+
+export const File = (props: FileProps) => {
+  return (
+    <_File {...props} />
+  );
+}
+
+export const FileInFolder = (props: FileProps) => {
+  return (
+    <_File {...props} cardStyle={{ backgroundColor: 'transparent', borderWidth: 0 }} />
   );
 }
 
