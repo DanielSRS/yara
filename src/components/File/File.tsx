@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { DefaultText } from "../Text";
+import { SurfaceCard } from "..";
 
 interface FileProps {
   /** Nome do arquivo */
@@ -32,40 +33,97 @@ export function File(props: FileProps) {
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      {/** Left (image/icon) */}
-      <View style={styles.fileIconContainer}>
+      <SurfaceCard style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={{ flexDirection: 'row' }}>
+          {/** Left (image/icon) */}
+          <View style={styles.fileIconContainer}>
+            {/* Icon */}
+            <DefaultText
+              style={{
+                fontSize: 16,
+                fontFamily: 'Segoe Fluent Icons',
+                minHeight: 16,
+                minWidth: 16,
+              }}>
+                {''}
+            </DefaultText>
+          </View>
 
-      </View>
+          {/** Center */}
+          <View style={{
+            // backgroundColor: 'red',
+            // flex: 1
+          }}>
+            {/* Top */}
+            <View style={{
+              // backgroundColor: 'green',
+              flex: 1,
+              justifyContent: 'center',
+            }}>
+              <DefaultText numberOfLines={1} style={{ fontSize: 12 }}>{fileName}</DefaultText>
+            </View>
 
-      {/** Right (info) */}
-      {/** quando largo, exibe com linha, quando pqeueno: coluna */}
-      <View style={styles.rightContainer}>
-        {/** Top (title) */}
-        <View style={styles.topContainer}>
-          <DefaultText numberOfLines={1}>{fileName}</DefaultText>
+            {/* Bottom */}
+            <View style={{ paddingBottom: 4, justifyContent: 'center', flex: 1 }}>
+              {/* Status */}
+              <View style={{
+                paddingHorizontal: 3,
+                paddingBottom: 1,
+                borderRadius: 2,
+                backgroundColor: '#A8DFE2',
+                alignSelf: 'flex-start',
+              }}>
+                <DefaultText style={{ fontSize: 10 }}>{status}</DefaultText>
+              </View>
+            </View>
+          </View>
         </View>
 
-        {/** Bottom (statuses) */}
-        <View style={styles.bottomContainer}>
-          <DefaultText>{status}</DefaultText>
-          <DefaultText>{fileType}</DefaultText>
-          <DefaultText>{size}</DefaultText>
-          <DefaultText>{progress}</DefaultText>
+        {/* Right */}
+        <View style={{
+          padding: 6,
+          gap: 4,
+          justifyContent: 'center',
+          alignItems: 'flex-end',
+        }}>
+          {/* IconContainer extension */}
+          <View style={{
+            paddingHorizontal: 3,
+            paddingVertical: 1,
+            borderRadius: 3,
+            backgroundColor: 'rgba(255, 255, 255, 0.7)'
+          }}>
+            <DefaultText style={{ fontSize: 10 }}>{fileType}</DefaultText>
+          </View>
+
+          {/* IconContainer file size */}
+          <View style={{
+            paddingHorizontal: 3,
+            paddingTop: 2,
+            borderRadius: 3,
+            backgroundColor: 'rgba(255, 255, 255, 0.7)'
+          }}>
+            <DefaultText style={{ fontSize: 10 }}>{size}</DefaultText>
+          </View>
         </View>
-      </View>
+      </SurfaceCard>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    // flex: 1,
+    // minWidth: 100,
+    // flexDirection: 'row',
+    // backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   fileIconContainer: {
-    height: 50,
-    width: 50,
-    backgroundColor: 'gray',
+    padding: 10,
+    // height: 50,
+    // width: 50,
+    // backgroundColor: 'gray',
+    justifyContent: 'center',
   },
   bottomContainer: {
     justifyContent: 'space-between',

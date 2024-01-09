@@ -24,7 +24,7 @@ import { Playground } from './src/pages/Playground';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const isWindows = Platform.OS === 'windows';
+  const isWindows = Platform.OS === 'macos';
   const darkBgColor = isDarkMode ? '#202020' : '#F3F3F3';
   const [showPlayground, setShowPlayground] = useState(false);
 
@@ -35,25 +35,6 @@ function App(): React.JSX.Element {
 
   const togglePlayground = () => setShowPlayground(p => !p);
 
-  if (showPlayground) {
-    return (
-      <SafeAreaView style={{ flex: 1 }}>
-        {Platform.OS !== 'windows' ? null : <Titlebar />}
-        <TouchableOpacity
-          onPress={togglePlayground}
-          style={{
-            backgroundColor: 'red',
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <Text style={{ fontFamily: 'Segoe Fluent Icons', }}></Text>
-          <Text> Exit playground</Text>
-        </TouchableOpacity>
-        <Playground />
-      </SafeAreaView>
-    );
-  }
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -61,10 +42,27 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       {Platform.OS !== 'windows' ? null : <Titlebar />}
-      <Drawer toggle={togglePlayground}>
-        <DownloadList downloads={['t1', 't2', 't3', 't4', 't5']} />
-        <Statusbar />
-      </Drawer>
+      {showPlayground ? null : (
+        <Drawer toggle={togglePlayground}>
+          <DownloadList downloads={['t1', 't2', 't3', 't4', 't5']} />
+          <Statusbar />
+        </Drawer>
+      )}
+      {!showPlayground ? null : (
+        <>
+          <TouchableOpacity
+            onPress={togglePlayground}
+            style={{
+              backgroundColor: 'red',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text style={{ fontFamily: 'Segoe Fluent Icons', }}></Text>
+            <Text> Exit playground</Text>
+          </TouchableOpacity>
+          <Playground />
+        </>
+      )}
     </SafeAreaView>
   );
 }
