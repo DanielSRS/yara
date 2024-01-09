@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, Text, TextProps, TextStyle } from 'react-native';
+import { StyleProp, Text, TextStyle } from 'react-native';
 
 interface DefaultText {
     /** Estilos do texto */

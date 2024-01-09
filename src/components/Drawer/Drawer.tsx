@@ -4,15 +4,16 @@ import { SurfaceApp } from "../Atoms";
 
 interface DrawerProps {
   children?: React.ReactNode;
+  toggle: () => void
 }
 
 export function Drawer(props: DrawerProps) {
-  const { children } = props;
+  const { children, toggle } = props;
 
   return (
     <View style={styles.container}>
       {}
-      <MenuArea />
+      <MenuArea toggle={toggle} />
       {}
       {/** Area de conteúdo */}
       <SurfaceApp style={styles.content}>
@@ -22,7 +23,7 @@ export function Drawer(props: DrawerProps) {
   );
 }
 
-function MenuArea() {
+function MenuArea({ toggle }: { toggle: () => void }) {
   const currentWidth = useRef(50);
   const width = useRef(new Animated.Value(50));
   const textOpacity = useRef(new Animated.Value(0));
@@ -126,6 +127,9 @@ function MenuArea() {
           </DrawerEntry>
           <DrawerEntry icon={''}>
             <EntryText>Sobre</EntryText>
+          </DrawerEntry>
+          <DrawerEntry icon={''} onPress={toggle}>
+            <EntryText>Test</EntryText>
           </DrawerEntry>
         </View>
       {}
