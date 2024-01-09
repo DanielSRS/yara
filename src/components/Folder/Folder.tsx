@@ -4,6 +4,7 @@ import { SurfaceCard } from "../Atoms";
 import { DefaultText } from "../Text";
 import { FileInFolder } from "../File/File";
 import { Folder as FolderType } from "../../models/Folder/Folder";
+import { FluentIcon } from "../../Libs/Icons/Fluent/FluentIcons";
 
 
 interface FolderProps extends FolderType {
@@ -26,19 +27,23 @@ export const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> 
           {/* Icon container */}
           <View style={{ padding: 4 }}>
             {/* Icon */}
-            <DefaultText style={{
-              fontFamily: 'Segoe Fluent Icons',
-              fontSize: 16,
-            }}>{''}</DefaultText>
+            <FluentIcon
+              color={'#FFFFFF'}
+              name={"ic_fluent_chevron_right_20_regular"}
+              width={20}
+              height={20}
+            />
           </View>
 
           {/* Icon container */}
           <View style={{ padding: 4 }}>
             {/* Icon */}
-            <DefaultText style={{
-              fontFamily: 'Segoe Fluent Icons',
-              fontSize: 16,
-            }}>{''}</DefaultText>
+            <FluentIcon
+              color={'#FFFFFF'}
+              name={"ic_fluent_folder_20_regular"}
+              width={20}
+              height={20}
+            />
           </View>
         </View>
 

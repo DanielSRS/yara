@@ -2,6 +2,7 @@ import React from "react";
 import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from "react-native";
 import { DefaultText } from "../Text";
 import { SurfaceCard } from "../Atoms";
+import { FluentIcon } from "../../Libs/Icons/Fluent/FluentIcons";
 
 interface FileProps {
   /** Nome do arquivo */
@@ -40,15 +41,12 @@ function _File(props: FileProps & { cardStyle?: StyleProp<ViewStyle>; showStatus
           {/** Left (image/icon) */}
           <View style={styles.fileIconContainer}>
             {/* Icon */}
-            <DefaultText
-              style={{
-                fontSize: 16,
-                fontFamily: 'Segoe Fluent Icons',
-                minHeight: 16,
-                minWidth: 16,
-              }}>
-                {''}
-            </DefaultText>
+            <FluentIcon
+              color={'#FFFFFF'}
+              name={"ic_fluent_document_20_regular"}
+              width={20}
+              height={20}
+            />
           </View>
 
           {/** Center */}
