@@ -70,7 +70,8 @@ function App(): React.JSX.Element {
 }
 
 const showStorybook = () => {
-  return Platform.OS === 'android' || Platform.OS === 'ios';
+  return false;
+  // return Platform.OS === 'android' || Platform.OS === 'ios';
 }
 
 export default showStorybook() ? StorybookUIRoot : App;
