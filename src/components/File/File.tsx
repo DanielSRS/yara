@@ -4,6 +4,16 @@ import { DefaultText } from "../Text";
 import { SurfaceCard } from "../Atoms";
 import { FluentIcon } from "../../Libs/Icons/Fluent/FluentIcons";
 
+const sizes = {
+  B: 1,
+  KB: 1000,
+  MB: 1000000,
+  GB: 1.0000E+9,
+  TB: 1.0000E+12,
+  PB: 1.0000E+15,
+  '??': 1,
+} as const;
+
 interface FileProps {
   /** Nome do arquivo */
   fileName: string;
@@ -20,6 +30,36 @@ interface FileProps {
 }
 
 /**
+ * f :: number -> string
+ * 
+ * Recebe o valor absoluto em bytes e retorna a
+ * unidade de medida em bytes na escala mais apropriada
+ */
+const getSizeUnityScale = (absoluteValue: number) => {
+  if (absoluteValue < sizes['KB']) return 'B';
+  if (absoluteValue < sizes['MB']) return 'KB';
+  if (absoluteValue < sizes['GB']) return 'MB';
+  if (absoluteValue < sizes['TB']) return 'GB';
+  if (absoluteValue < sizes['PB']) return 'TB';
+
+  return '??';
+}
+
+type ConversionUnitys = keyof typeof sizes;
+const changeUnityScale = (targetScale: ConversionUnitys) => (value: number) =>  value / sizes[targetScale];
+const convertSizeUnity =
+  // uma função que recebe o valor e retorna a unidade
+  (b: (a: number) => ConversionUnitys) =>
+  // recebe uma função para ajustar a escala
+  (value: (v: ConversionUnitys) => (a: number) =>  number) =>
+  // o valor absoluto a ser convertido
+  (absoluteValue: number) => {
+    const unity = b(absoluteValue);
+    return `${value(unity)(absoluteValue).toFixed(2).replace('.', ',')} ${unity}`;
+  }
+const convertByteUnitys = convertSizeUnity(getSizeUnityScale)(changeUnityScale);
+
+/**
  * Exibe as informações de um arquivo de um torrent
  */
 function _File(props: FileProps & { cardStyle?: StyleProp<ViewStyle>; showStatus?: boolean }) {
@@ -33,6 +73,8 @@ function _File(props: FileProps & { cardStyle?: StyleProp<ViewStyle>; showStatus
     cardStyle,
     showStatus = false,
   } = props;
+
+  const fileSize = convertByteUnitys(size);
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
@@ -104,7 +146,7 @@ function _File(props: FileProps & { cardStyle?: StyleProp<ViewStyle>; showStatus
             borderRadius: 3,
             backgroundColor: 'rgba(255, 255, 255, 0.7)'
           }}>
-            <DefaultText style={{ fontSize: 10 }}>{size}</DefaultText>
+            <DefaultText style={{ fontSize: 10 }}>{fileSize}</DefaultText>
           </View>
         </View>
       </SurfaceCard>
