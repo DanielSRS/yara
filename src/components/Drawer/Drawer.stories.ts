@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react-native';
-import React from 'react';
+import { ComponentMeta } from '@storybook/react-native';
 import { Drawer } from './Drawer';
 
 export default {

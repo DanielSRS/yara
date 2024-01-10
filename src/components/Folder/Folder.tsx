@@ -11,7 +11,7 @@ interface FolderProps extends FolderType {
   //
 }
 
-export const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> }) => {
+const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> }) => {
   const { name, files, subFolders, cardStyle } = props;
 
   return (
