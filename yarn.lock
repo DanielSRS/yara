@@ -6876,6 +6876,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:^18.2.0"
     react-native: "npm:^0.73.1"
+    react-native-document-picker: "npm:^9.1.0"
     react-native-gesture-handler: "npm:^2.14.0"
     react-native-linear-gradient: "npm:2.8.3"
     react-native-localize: "npm:2.2.6"
@@ -17448,6 +17449,22 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
+  languageName: node
+  linkType: hard
+
+"react-native-document-picker@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "react-native-document-picker@npm:9.1.0"
+  dependencies:
+    invariant: "npm:^2.2.4"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-windows: "*"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: a56d12fcd1bb038673f3716a5fd491116e530009c096c1b7e9ac8441f7ad81869050608c32e6eb76682a9337778a353dfba526033d848c456a3788a7d9b0d8d6
   languageName: node
   linkType: hard
 

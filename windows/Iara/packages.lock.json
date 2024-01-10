@@ -206,6 +206,14 @@
           "Microsoft.UI.Xaml": "[2.8.0, )"
         }
       },
+      "reactnativedocumentpicker": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[6.2.12, )",
+          "Microsoft.ReactNative": "[1.0.0, )",
+          "Microsoft.ReactNative.Managed": "[1.0.0, )"
+        }
+      },
       "reactnativewebview": {
         "type": "Project",
         "dependencies": {

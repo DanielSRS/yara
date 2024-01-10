@@ -54,6 +54,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RNLocalize", "..\node_modul
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinRTTurboModule", "..\node_modules\react-native-winrt\windows\WinRTTurboModule\WinRTTurboModule.vcxproj", "{E13C9C82-0013-422C-945E-848A258AC4DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactNativeDocumentPicker", "..\node_modules\react-native-document-picker\windows\ReactNativeDocumentPicker\ReactNativeDocumentPicker.csproj", "{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -288,6 +290,18 @@ Global
 		{E13C9C82-0013-422C-945E-848A258AC4DB}.Release|x64.Build.0 = Release|x64
 		{E13C9C82-0013-422C-945E-848A258AC4DB}.Release|x86.ActiveCfg = Release|Win32
 		{E13C9C82-0013-422C-945E-848A258AC4DB}.Release|x86.Build.0 = Release|Win32
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Debug|ARM64.Build.0 = Debug|ARM64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Debug|x64.ActiveCfg = Debug|x64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Debug|x64.Build.0 = Debug|x64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Debug|x86.ActiveCfg = Debug|x86
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Debug|x86.Build.0 = Debug|x86
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Release|ARM64.ActiveCfg = Release|ARM64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Release|ARM64.Build.0 = Release|ARM64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Release|x64.ActiveCfg = Release|x64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Release|x64.Build.0 = Release|x64
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Release|x86.ActiveCfg = Release|x86
+		{A4C9C727-0AEB-4A3D-B547-BEDB812B172D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
