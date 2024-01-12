@@ -46,8 +46,12 @@
       -include Windows.Security.Cryptography.BinaryStringEncoding
       -include Windows.UI.Notifications
       -include Windows.Data.Xml.Dom
+      -include Windows.ApplicationModel
       -include Windows.ApplicationModel.Core
+      -include Windows.ApplicationModel.Core.CoreApplication
+      -include Windows.System
       -include Windows.System.Diagnostics
+      -include Windows.System.Diagnostics.Process
     </RnWinRTParameters>
   </PropertyGroup>
 

@@ -17,19 +17,19 @@ export function SurfaceApp(props: SurfaceAppProps) {
 
 const styles = StyleSheet.create({
   darkStyles: {
-    /** Strock */
-    borderWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.1)', // dark
+    // /** Strock */
+    // borderWidth: 1,
+    // borderColor: 'rgba(0, 0, 0, 0.1)', // dark
 
-    /** Fill */
-    backgroundColor:  'rgba(58, 58, 58, 0.3)', // dark
+    // /** Fill */
+    // backgroundColor:  'rgba(58, 58, 58, 0.3)', // dark
   },
   lightStyles: {
-    /** Strock */
-    borderWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.0578)', // light
+    // /** Strock */
+    // borderWidth: 1,
+    // borderColor: 'rgba(0, 0, 0, 0.0578)', // light
 
-    /** Fill */
-    backgroundColor:  'rgba(255, 255, 255, 0.5)', // light
+    // /** Fill */
+    // backgroundColor:  'rgba(255, 255, 255, 0.5)', // light
   },
 });

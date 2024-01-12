@@ -15,6 +15,7 @@ import {
   Platform,
   TouchableOpacity,
   Text,
+  PlatformColor,
 } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
 import { DownloadList } from './src/components/Download/List/DownloadList';
@@ -24,12 +25,12 @@ import { Playground } from './src/pages/Playground';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const isWindows = Platform.OS === 'macos';
+  const isWindows = Platform.OS === 'windows';
   const darkBgColor = isDarkMode ? '#202020' : '#F3F3F3';
   const [showPlayground, setShowPlayground] = useState(false);
 
   const backgroundStyle: StyleProp<ViewStyle> = {
-    backgroundColor: isWindows ? 'transparent' : darkBgColor,
+    backgroundColor: isWindows ? PlatformColor('AcrylicBackgroundFillColorDefaultBrush') : darkBgColor,
     flex: 1,
   };
 
