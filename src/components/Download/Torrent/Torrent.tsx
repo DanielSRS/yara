@@ -1,13 +1,13 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { Caption, DefaultText } from "../../Text";
-import { SurfaceCard } from "../../Atoms";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Caption, DefaultText } from '../../Text';
+import { SurfaceCard } from '../../Atoms';
 
 interface Theme {
   colors: {
     background: string;
   };
-};
+}
 
 interface TorrentDownloadProps {
   /** Titulo do torrent */
@@ -15,7 +15,7 @@ interface TorrentDownloadProps {
   /** Tema do componete */
   theme?: Theme;
   /** Função de callback ao clicar no card do torrent */
-  onPress?: () => void,
+  onPress?: () => void;
 }
 
 const defaultTheme: Theme = {
@@ -25,7 +25,12 @@ const defaultTheme: Theme = {
 };
 
 export const TorrentDownload = (props: TorrentDownloadProps) => {
-  const { title, theme: { colors: { background } } = defaultTheme, onPress } = props;
+  const {
+    title,
+    theme: { colors: { background } } = defaultTheme,
+    onPress,
+  } = props;
+  background;
   const numberOfFiles = 0;
   const size = 0;
   const elapsedTime = 0;
@@ -35,62 +40,45 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const uploadSpeed = 0;
   const totalUploaded = 0;
 
-  const label_NumberOfFiles = 'Number of files'
-  const label_Size = 'Size'
-  const label_ElapsedTime = 'Elapsed time'
-  const label_Remaining = 'Remaining time'
-  const label_Ratio = 'Ratio'
+  const label_NumberOfFiles = 'Number of files';
+  const label_Size = 'Size';
+  const label_ElapsedTime = 'Elapsed time';
+  const label_Remaining = 'Remaining time';
+  const label_Ratio = 'Ratio';
   return (
     <TouchableOpacity onPress={onPress}>
       <SurfaceCard style={[styles.container]}>
-        <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
+        <DefaultText numberOfLines={2} style={styles.title}>
+          {title}
+        </DefaultText>
         <Separator />
 
         {/** Numero de arquivos sendo baixados */}
         <TwoColumnText>
-          <Caption>
-            {label_NumberOfFiles}
-          </Caption>
-          <Caption>
-            {numberOfFiles}
-          </Caption>
+          <Caption>{label_NumberOfFiles}</Caption>
+          <Caption>{numberOfFiles}</Caption>
         </TwoColumnText>
 
         {/** Tamanho do download */}
         <TwoColumnText>
-          <Caption>
-            {label_Size}
-          </Caption>
-          <Caption>
-            {size}
-          </Caption>
+          <Caption>{label_Size}</Caption>
+          <Caption>{size}</Caption>
         </TwoColumnText>
 
         {/** Tempo decorrido */}
         <TwoColumnText>
-          <Caption>
-            {label_ElapsedTime}
-          </Caption>
-          <Caption>
-            {elapsedTime}
-          </Caption>
+          <Caption>{label_ElapsedTime}</Caption>
+          <Caption>{elapsedTime}</Caption>
         </TwoColumnText>
 
         {/** Tempo restante */}
         <TwoColumnText>
-          <Caption>
-            {label_Remaining}
-          </Caption>
-          <Caption>
-            {remainingTime}
-          </Caption>
+          <Caption>{label_Remaining}</Caption>
+          <Caption>{remainingTime}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
 
         {/** Velocidade de download */}
         <TwoColumnText>
@@ -105,26 +93,16 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
 
         {/** Ratio */}
         <TwoColumnText>
-          <Caption>
-            {label_Ratio}
-          </Caption>
-          <Caption>
-            {'-'}
-          </Caption>
+          <Caption>{label_Ratio}</Caption>
+          <Caption>{'-'}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
 
         {/** Status */}
         <TwoColumnText>
@@ -133,32 +111,36 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
         {}
       </SurfaceCard>
     </TouchableOpacity>
   );
-}
+};
 
 const Separator = () => {
   return (
     <View style={{ paddingVertical: 10, alignItems: 'center' }}>
       {}
-      <View style={{ height: 2, borderRadius: 2, width: 20, backgroundColor: 'white' }} />
+      <View
+        style={{
+          height: 2,
+          borderRadius: 2,
+          width: 20,
+          backgroundColor: 'white',
+        }}
+      />
       {}
     </View>
   );
-}
+};
 
 interface TwoColumnTextProps {
-  children: [string | React.ReactNode, string | React.ReactNode];
+  children?: [string | React.ReactNode, string | React.ReactNode];
 }
 
 const TwoColumnText = (props: TwoColumnTextProps) => {
-  const { children } = props;
+  const { children = ['', ''] } = props;
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
       {}
@@ -167,7 +149,7 @@ const TwoColumnText = (props: TwoColumnTextProps) => {
       {}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

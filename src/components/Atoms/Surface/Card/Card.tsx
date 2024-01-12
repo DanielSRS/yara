@@ -1,5 +1,11 @@
-import React from "react";
-import { StyleProp, StyleSheet, View, ViewStyle, useColorScheme } from "react-native";
+import React from 'react';
+import {
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewStyle,
+  useColorScheme,
+} from 'react-native';
 
 type SurfaceCardProps = {
   children?: React.ReactNode;
@@ -26,7 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
 
     /** Fill */
-    backgroundColor:  'rgba(255, 255, 255, 0.7)', // light
+    backgroundColor: 'rgba(255, 255, 255, 0.7)', // light
   },
   dark: {
     /** Strock */
@@ -35,6 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 7,
 
     /** Fill */
-    backgroundColor:  'rgba(255, 255, 255, 0.0512)', // dark
+    backgroundColor: 'rgba(255, 255, 255, 0.0512)', // dark
   },
 });

@@ -16,6 +16,7 @@ import {
   TouchableOpacity,
   Text,
   PlatformColor,
+  StyleSheet,
 } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
 import { DownloadList } from './src/components/Download/List/DownloadList';
@@ -30,7 +31,9 @@ function App(): React.JSX.Element {
   const [showPlayground, setShowPlayground] = useState(false);
 
   const backgroundStyle: StyleProp<ViewStyle> = {
-    backgroundColor: isWindows ? PlatformColor('AcrylicBackgroundFillColorDefaultBrush') : darkBgColor,
+    backgroundColor: isWindows
+      ? PlatformColor('AcrylicBackgroundFillColorDefaultBrush')
+      : darkBgColor,
     flex: 1,
   };
 
@@ -53,12 +56,8 @@ function App(): React.JSX.Element {
         <>
           <TouchableOpacity
             onPress={togglePlayground}
-            style={{
-              backgroundColor: 'red',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Text style={{ fontFamily: 'Segoe Fluent Icons', }}></Text>
+            style={styles.exitPlaygroundButton}>
+            <Text style={styles.exitPlaygroundText}></Text>
             <Text> Exit playground</Text>
           </TouchableOpacity>
           <Playground />
@@ -71,6 +70,17 @@ function App(): React.JSX.Element {
 const showStorybook = () => {
   return false;
   // return Platform.OS === 'android' || Platform.OS === 'ios';
-}
+};
+
+const styles = StyleSheet.create({
+  exitPlaygroundButton: {
+    backgroundColor: 'red',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  exitPlaygroundText: {
+    fontFamily: 'Segoe Fluent Icons',
+  },
+});
 
 export default showStorybook() ? StorybookUIRoot : App;

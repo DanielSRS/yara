@@ -1,11 +1,10 @@
-import React from "react";
-import { StyleProp, View, ViewStyle } from "react-native";
-import { SurfaceCard } from "../Atoms";
-import { DefaultText } from "../Text";
-import { FileInFolder } from "../File/File";
-import { Folder as FolderType } from "../../models/Folder/Folder";
-import { FluentIcon } from "../../Libs/Icons/Fluent/FluentIcons";
-
+import React from 'react';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { SurfaceCard } from '../Atoms';
+import { DefaultText } from '../Text';
+import { FileInFolder } from '../File/File';
+import { Folder as FolderType } from '../../models/Folder/Folder';
+import { FluentIcon } from '../../Libs/Icons/Fluent/FluentIcons';
 
 interface FolderProps extends FolderType {
   //
@@ -17,11 +16,12 @@ const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> }) => {
   return (
     <SurfaceCard style={cardStyle}>
       {/* Nome da pasta e togles */}
-      <View style={{
-        // backgroundColor: 'red',
-        flexDirection: 'row',
-        alignItems: 'center'
-      }}>
+      <View
+        style={{
+          // backgroundColor: 'red',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
         {/* Left */}
         <View style={{ padding: 6, flexDirection: 'row' }}>
           {/* Icon container */}
@@ -29,7 +29,7 @@ const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> }) => {
             {/* Icon */}
             <FluentIcon
               color={'#FFFFFF'}
-              name={"ic_fluent_chevron_right_20_regular"}
+              name={'ic_fluent_chevron_right_20_regular'}
               width={20}
               height={20}
             />
@@ -40,7 +40,7 @@ const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> }) => {
             {/* Icon */}
             <FluentIcon
               color={'#FFFFFF'}
-              name={"ic_fluent_folder_20_regular"}
+              name={'ic_fluent_folder_20_regular'}
               width={20}
               height={20}
             />
@@ -55,39 +55,41 @@ const _Folder = (props: FolderProps & { cardStyle?: StyleProp<ViewStyle> }) => {
       </View>
 
       {/* corpo da pasta */}
-      <View style={{
-        // gap: 10,
-        paddingLeft: 49,
-      }}>
+      <View
+        style={{
+          // gap: 10,
+          paddingLeft: 49,
+        }}>
         {/* arquivos */}
-        {files.map((file) => (
+        {files.map(file => (
           <FileInFolder
             key={file.name}
             fileName={file.name}
             fileType={file.extension || ''}
-            status={"completed"}
+            status={'completed'}
             size={file.size}
             progress={0}
           />
         ))}
 
         {/* Sub folders */}
-        {subFolders.map((folder) => (
+        {subFolders.map(folder => (
           <SubFolder key={folder.name} {...folder} />
         ))}
       </View>
     </SurfaceCard>
   );
-}
+};
 
 const SubFolder = (props: FolderProps) => {
   return (
-    <_Folder {...props} cardStyle={{ backgroundColor: 'transparent', borderWidth: 0 }} />
+    <_Folder
+      {...props}
+      cardStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+    />
   );
-}
+};
 
 export const Folder = (props: FolderProps) => {
-  return (
-    <_Folder {...props} />
-  );
-}
+  return <_Folder {...props} />;
+};

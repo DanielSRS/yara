@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react-native';
 import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
 import { SurfaceApp } from './App';
 import { Text } from 'react-native';
 
@@ -8,7 +8,7 @@ export default {
   component: SurfaceApp,
 } as ComponentMeta<typeof SurfaceApp>;
 
-export const surfaceApp: ComponentStory<typeof SurfaceApp> = (args) => {
+export const surfaceApp: ComponentStory<typeof SurfaceApp> = args => {
   return (
     <SurfaceApp {...args}>
       <Text>With some child</Text>

@@ -1,12 +1,13 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { name } from '../../../package.json';
 
 interface TitlebarProps {}
 
 export function Titlebar(props: TitlebarProps) {
+  const {} = props;
   return (
-    <View style={ styles.container }>
+    <View style={styles.container}>
       <Text style={styles.appName}>{name}</Text>
     </View>
   );

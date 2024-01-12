@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react-native';
-import React from 'react';
+import { ComponentMeta } from '@storybook/react-native';
 import { Caption } from './Caption';
 
 export default {
@@ -11,5 +10,3 @@ export default {
 } as ComponentMeta<typeof Caption>;
 
 export const Basic: ComponentMeta<typeof Caption> = {};
-
-

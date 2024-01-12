@@ -18,7 +18,7 @@ export default {
         extension: 'mkv',
         size: 1502552,
         path: 'laskdfj',
-      }
+      },
     ],
     subFolders: [
       {
@@ -35,12 +35,12 @@ export default {
             extension: 'srt',
             path: 'çlfjksd',
             size: 1565,
-          }
+          },
         ],
         subFolders: [],
-      }
+      },
     ],
-  }
+  },
 } as ComponentMeta<typeof Folder>;
 
 export const Basic: ComponentMeta<typeof Folder> = {};

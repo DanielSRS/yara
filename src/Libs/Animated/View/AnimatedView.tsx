@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleProp, ViewStyle, View } from "react-native";
+import React from 'react';
+import { StyleProp, ViewStyle, View } from 'react-native';
 
 interface AnimatedViewProps {
   children: React.ReactNode;
@@ -7,7 +7,5 @@ interface AnimatedViewProps {
 }
 
 export function AnimatedView(props: AnimatedViewProps) {
-  return (
-    <View {...props} />
-  );
+  return <View {...props} />;
 }

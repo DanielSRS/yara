@@ -1,5 +1,5 @@
-import React from "react";
-import { Modal } from "react-native";
+import React from 'react';
+import { Modal } from 'react-native';
 
 export const LocalContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,9 +10,9 @@ export const LocalContainer = ({ children }: { children: React.ReactNode }) => {
       onRequestClose={() => {
         // Alert.alert('Modal has been closed.');
         // setModalVisible(!modalVisible);
-        console.log("Closing modal");
+        console.log('Closing modal');
       }}>
-        {children}
+      {children}
     </Modal>
   );
-}
+};

@@ -1,10 +1,23 @@
-import React, { useRef, useState } from "react";
-import { Animated, LayoutChangeEvent, Platform, RegisteredStyle, ScrollView, StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
-import { SurfaceApp } from "../Atoms";
+import React, { useRef, useState } from 'react';
+import {
+  Animated,
+  LayoutChangeEvent,
+  Platform,
+  RegisteredStyle,
+  ScrollView,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
+import { SurfaceApp } from '../Atoms';
 
 interface DrawerProps {
   children?: React.ReactNode;
-  toggle: () => void
+  toggle: () => void;
 }
 
 export function Drawer(props: DrawerProps) {
@@ -16,9 +29,7 @@ export function Drawer(props: DrawerProps) {
       <MenuArea toggle={toggle} />
       {}
       {/** Area de conteúdo */}
-      <SurfaceApp style={styles.content}>
-        {children}
-      </SurfaceApp>
+      <SurfaceApp style={styles.content}>{children}</SurfaceApp>
     </View>
   );
 }
@@ -33,7 +44,7 @@ function MenuArea({ toggle }: { toggle: () => void }) {
 
   const isMenuOpen = () => {
     return currentWidth.current >= 48 && currentWidth.current <= 60;
-  }
+  };
 
   /**
    * Abre e fecha o drawer de forma animada
@@ -73,65 +84,85 @@ function MenuArea({ toggle }: { toggle: () => void }) {
       useNativeDriver: false,
       // duration: 300,
     }).start();
-  }
+  };
 
   const AnimatedView = (props: {
     children?: React.ReactNode;
     style?: StyleProp<ViewStyle>;
-    onLayout?: ((event: LayoutChangeEvent) => void);
-    animatedStyle?: false | Animated.Value | RegisteredStyle<ViewStyle> | Animated.AnimatedInterpolation<string | number> | Animated.WithAnimatedObject<ViewStyle> | Animated.WithAnimatedArray<ViewStyle> | null | undefined;
+    onLayout?: (event: LayoutChangeEvent) => void;
+    animatedStyle?:
+      | false
+      | Animated.Value
+      | RegisteredStyle<ViewStyle>
+      | Animated.AnimatedInterpolation<string | number>
+      | Animated.WithAnimatedObject<ViewStyle>
+      | Animated.WithAnimatedArray<ViewStyle>
+      | null
+      | undefined;
   }) => {
     if (isWeb) {
-      return <View {...props} />
+      return <View {...props} />;
     }
-    return <Animated.View {...props} style={[props.style, props.animatedStyle]} />
-  }
+    return (
+      <Animated.View {...props} style={[props.style, props.animatedStyle]} />
+    );
+  };
 
   const AnimatedText = (props: {
     children?: React.ReactNode;
     style?: StyleProp<TextStyle>;
-    onLayout?: ((event: LayoutChangeEvent) => void);
-    animatedStyle?: false | Animated.Value | RegisteredStyle<ViewStyle> | Animated.AnimatedInterpolation<string | number> | Animated.WithAnimatedObject<ViewStyle> | Animated.WithAnimatedArray<ViewStyle> | null | undefined;
+    onLayout?: (event: LayoutChangeEvent) => void;
+    animatedStyle?:
+      | false
+      | Animated.Value
+      | RegisteredStyle<ViewStyle>
+      | Animated.AnimatedInterpolation<string | number>
+      | Animated.WithAnimatedObject<ViewStyle>
+      | Animated.WithAnimatedArray<ViewStyle>
+      | null
+      | undefined;
   }) => {
     if (isWeb) {
-      return <Text {...props} />
+      return <Text {...props} />;
     }
-    return <Animated.Text {...props} style={[props.style, props.animatedStyle]} />
-  }
+    return (
+      <Animated.Text {...props} style={[props.style, props.animatedStyle]} />
+    );
+  };
 
   const EntryText = ({ children }: { children: React.ReactNode }) => {
     return (
       <AnimatedText
         style={{ opacity: textOpacityWeb, width: 320 }}
         animatedStyle={{ opacity: textOpacity.current }}>
-          {children}
-        </AnimatedText>
+        {children}
+      </AnimatedText>
     );
-  }
+  };
 
   return (
     <AnimatedView
-      onLayout={e => currentWidth.current = e.nativeEvent.layout.width}
+      onLayout={e => (currentWidth.current = e.nativeEvent.layout.width)}
       animatedStyle={{ width: width.current }}
       style={[styles.menuArea, { width: widthWeb }]}>
-        {/* Parte de cima */}
-        <ScrollView>
-          {/* Botão de toggle do menu */}
-          <DrawerEntry onPress={toggleMenu} icon={''} />
-        </ScrollView>
+      {/* Parte de cima */}
+      <ScrollView>
+        {/* Botão de toggle do menu */}
+        <DrawerEntry onPress={toggleMenu} icon={''} />
+      </ScrollView>
 
-        {/* Parte de baixo */}
-        <View style={{ paddingBottom: 2 }}>
-          <DrawerEntry icon={''}>
-            <EntryText>Configurações</EntryText>
-          </DrawerEntry>
-          <DrawerEntry icon={''}>
-            <EntryText>Sobre</EntryText>
-          </DrawerEntry>
-          <DrawerEntry icon={''} onPress={toggle}>
-            <EntryText>Test</EntryText>
-          </DrawerEntry>
-        </View>
+      {/* Parte de baixo */}
+      <View style={{ paddingBottom: 2 }}>
+        <DrawerEntry icon={''}>
+          <EntryText>Configurações</EntryText>
+        </DrawerEntry>
+        <DrawerEntry icon={''}>
+          <EntryText>Sobre</EntryText>
+        </DrawerEntry>
+        <DrawerEntry icon={''} onPress={toggle}>
+          <EntryText>Test</EntryText>
+        </DrawerEntry>
+      </View>
       {}
     </AnimatedView>
   );
@@ -149,20 +180,21 @@ const DrawerEntry = (props: DrawerEntryProps) => {
   const mouseEvents = {
     onMouseEnter: () => setToggleHover(true),
     onMouseLeave: () => setToggleHover(false),
-  }
+  };
   return (
-    <View style={{
-      flexDirection: 'row',
-      alignItems: 'center',
-    }}>
-      <View
+    <View
       style={{
-        height: 40,
-        width: 48,
-        justifyContent: 'center',
+        flexDirection: 'row',
         alignItems: 'center',
-        // backgroundColor: 'red',
       }}>
+      <View
+        style={{
+          height: 40,
+          width: 48,
+          justifyContent: 'center',
+          alignItems: 'center',
+          // backgroundColor: 'red',
+        }}>
         <TouchableOpacity
           onPress={onPress}
           {...mouseEvents}
@@ -172,22 +204,26 @@ const DrawerEntry = (props: DrawerEntryProps) => {
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 3,
-            backgroundColor: toggleHover ? 'rgba(255, 255, 255, 0.0605)' : undefined,
-          }}
-          >
-          <Text style={{
-            fontSize: 16,
-            // marginTop: -15,
-            fontFamily: 'Segoe Fluent Icons',
-            // backgroundColor: 'rgba(255, 255, 255, 0.6)'
-          }}>{icon}</Text>
+            backgroundColor: toggleHover
+              ? 'rgba(255, 255, 255, 0.0605)'
+              : undefined,
+          }}>
+          <Text
+            style={{
+              fontSize: 16,
+              // marginTop: -15,
+              fontFamily: 'Segoe Fluent Icons',
+              // backgroundColor: 'rgba(255, 255, 255, 0.6)'
+            }}>
+            {icon}
+          </Text>
         </TouchableOpacity>
       </View>
       {/* Nome */}
       {children}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

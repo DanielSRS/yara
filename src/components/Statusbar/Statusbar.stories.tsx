@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import { ComponentMeta } from '@storybook/react-native';
 import { Statusbar } from './index';
 
 export default {
