@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './TorrentInfo.styles';
 import { File, Folder, SurfaceCard } from '../../components';
 import { FluentIcon } from '../../Libs/Icons/Fluent/FluentIcons';
+import { DefaultText } from '../../components/Text';
 
 /**
  * Exibe as informações de um torrent ou magnect link
@@ -20,11 +21,13 @@ export const TorrentInfo = () => {
       <View style={styles.sectionsContainer}>
         {/* Left: Files */}
         <View style={styles.leftContainer}>
+          <DefaultText style={styles.sectionTitle}>{'Arquivos'}</DefaultText>
           <TorrentFileList />
         </View>
 
         {/* Right: general info */}
         <View style={styles.rightContainer}>
+          <DefaultText style={styles.sectionTitle}>{'Informações'}</DefaultText>
           <TorrentInfoCards />
         </View>
       </View>
@@ -37,7 +40,7 @@ export const TorrentInfo = () => {
  */
 const TorrentFileList = () => {
   return (
-    <View style={{ paddingHorizontal: 18, gap: 2 }}>
+    <View style={styles.torrentFileListContainer}>
       {/* Pastas */}
       {[
         {

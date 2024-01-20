@@ -48,4 +48,17 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+
+  /** Section title */
+  sectionTitle: {
+    fontSize: 20,
+    paddingHorizontal: 18,
+    paddingVertical: 20,
+  },
+
+  /** TorrentFileList */
+  torrentFileListContainer: {
+    paddingHorizontal: 18,
+    gap: 2,
+  },
 });
