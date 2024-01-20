@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import { Platform, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
 import { DownloadList } from './src/components/Download/List/DownloadList';
@@ -23,7 +23,7 @@ function App(): React.JSX.Element {
       {Platform.OS !== 'windows' ? null : <Titlebar />}
       {showPlayground ? null : (
         <Drawer toggle={togglePlayground}>
-          <DownloadList downloads={['t1', 't2', 't3', 't4', 't5']} />
+          <DownloadList downloads={downloads} />
           <Statusbar />
         </Drawer>
       )}
@@ -57,5 +57,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Segoe Fluent Icons',
   },
 });
+
+const downloads: ComponentProps<typeof DownloadList>['downloads'] = [
+  {
+    name: 'download.one',
+    numberOfFiles: 7,
+    size: 458124,
+    elapsedTime: 458124,
+    remainingTime: 458124,
+    downloadSpeed: 50,
+    totalDownloaded: 50,
+    uploadSpeed: 50,
+    totalUploaded: 50,
+  },
+];
 
 export default showStorybook() ? StorybookUIRoot : App;

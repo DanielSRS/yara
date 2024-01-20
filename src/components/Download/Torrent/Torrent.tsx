@@ -10,12 +10,21 @@ interface Theme {
 }
 
 interface TorrentDownloadProps {
-  /** Titulo do torrent */
-  title: string;
+  /** Nome do torrent */
+  name: string;
   /** Tema do componete */
   theme?: Theme;
   /** Função de callback ao clicar no card do torrent */
   onPress?: () => void;
+
+  numberOfFiles: number;
+  size: number;
+  elapsedTime: number;
+  remainingTime: number;
+  downloadSpeed: number;
+  totalDownloaded: number;
+  uploadSpeed: number;
+  totalUploaded: number;
 }
 
 const defaultTheme: Theme = {
@@ -26,30 +35,31 @@ const defaultTheme: Theme = {
 
 export const TorrentDownload = (props: TorrentDownloadProps) => {
   const {
-    title,
+    name,
     theme: { colors: { background } } = defaultTheme,
     onPress,
+    numberOfFiles,
+    size,
+    elapsedTime,
+    remainingTime,
+    downloadSpeed,
+    totalDownloaded,
+    uploadSpeed,
+    totalUploaded,
   } = props;
   background;
-  const numberOfFiles = 0;
-  const size = 0;
-  const elapsedTime = 0;
-  const remainingTime = 0;
-  const downloadSpeed = 0;
-  const totalDownloaded = 0;
-  const uploadSpeed = 0;
-  const totalUploaded = 0;
 
   const label_NumberOfFiles = 'Number of files';
   const label_Size = 'Size';
   const label_ElapsedTime = 'Elapsed time';
   const label_Remaining = 'Remaining time';
   const label_Ratio = 'Ratio';
+  const ratio = (totalUploaded / totalDownloaded).toFixed(2);
   return (
     <TouchableOpacity onPress={onPress}>
       <SurfaceCard style={[styles.container]}>
         <DefaultText numberOfLines={2} style={styles.title}>
-          {title}
+          {name}
         </DefaultText>
         <Separator />
 
@@ -98,7 +108,7 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         {/** Ratio */}
         <TwoColumnText>
           <Caption>{label_Ratio}</Caption>
-          <Caption>{'-'}</Caption>
+          <Caption>{ratio}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
@@ -153,7 +163,7 @@ const TwoColumnText = (props: TwoColumnTextProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    maxWidth: 230,
+    maxWidth: 230, // ou talvez 180 seja melhor
     minWidth: 180,
     paddingHorizontal: 10,
     paddingTop: 10,

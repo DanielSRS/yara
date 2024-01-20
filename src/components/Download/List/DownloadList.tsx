@@ -4,8 +4,20 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { TorrentDownload } from '../Torrent/Torrent';
 import { AnimatedView } from '../../../Libs/Animated/View';
 
+interface DownloadInfo {
+  name: string;
+  numberOfFiles: number;
+  size: number;
+  elapsedTime: number;
+  remainingTime: number;
+  downloadSpeed: number;
+  totalDownloaded: number;
+  uploadSpeed: number;
+  totalUploaded: number;
+}
+
 interface DownloadListProps {
-  downloads: string[];
+  downloads: DownloadInfo[];
 }
 
 export function DownloadList(props: DownloadListProps) {
@@ -19,7 +31,17 @@ export function DownloadList(props: DownloadListProps) {
             <AnimatedView
               // entering={SlideInLeft.delay(100 * index <= 5 ? index : 1).springify()}
               key={index.toString()}>
-              <TorrentDownload title={data} />
+              <TorrentDownload
+                name={data.name}
+                numberOfFiles={data.numberOfFiles}
+                size={data.size}
+                elapsedTime={data.elapsedTime}
+                remainingTime={data.remainingTime}
+                downloadSpeed={data.downloadSpeed}
+                totalDownloaded={data.totalDownloaded}
+                uploadSpeed={data.uploadSpeed}
+                totalUploaded={data.totalUploaded}
+              />
             </AnimatedView>
           );
         })}
