@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Caption, DefaultText } from '../../Text';
 import { SurfaceCard } from '../../Atoms';
+import { convertByteUnitys } from '../../../utils/size/sizeConverters';
 
 interface Theme {
   colors: {
@@ -55,6 +56,12 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const label_Remaining = 'Remaining time';
   const label_Ratio = 'Ratio';
   const ratio = (totalUploaded / totalDownloaded).toFixed(2);
+
+  const sizeValue = convertByteUnitys(size);
+  const downloadSpeedValue = convertByteUnitys(downloadSpeed);
+  const uploadSpeedValue = convertByteUnitys(uploadSpeed);
+  const totalDownloadedValue = convertByteUnitys(totalDownloaded);
+  const totalUploadedValue = convertByteUnitys(totalUploaded);
   return (
     <TouchableOpacity onPress={onPress}>
       <SurfaceCard style={[styles.container]}>
@@ -72,7 +79,7 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         {/** Tamanho do download */}
         <TwoColumnText>
           <Caption>{label_Size}</Caption>
-          <Caption>{size}</Caption>
+          <Caption>{sizeValue}</Caption>
         </TwoColumnText>
 
         {/** Tempo decorrido */}
@@ -92,14 +99,14 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
 
         {/** Velocidade de download */}
         <TwoColumnText>
-          <Caption>{`   ${downloadSpeed} KB/s`}</Caption>
-          <Caption>{totalDownloaded}</Caption>
+          <Caption>{`   ${downloadSpeedValue}/s`}</Caption>
+          <Caption>{totalDownloadedValue}</Caption>
         </TwoColumnText>
 
         {/** Velocidade de upload */}
         <TwoColumnText>
-          <Caption>{`   ${uploadSpeed} KB/s`}</Caption>
-          <Caption>{totalUploaded}</Caption>
+          <Caption>{`   ${uploadSpeedValue}/s`}</Caption>
+          <Caption>{totalUploadedValue}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
