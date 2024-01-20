@@ -6,45 +6,20 @@
  */
 
 import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  useColorScheme,
-  StyleProp,
-  ViewStyle,
-  Platform,
-  TouchableOpacity,
-  Text,
-  PlatformColor,
-  StyleSheet,
-} from 'react-native';
+import { Platform, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
 import { DownloadList } from './src/components/Download/List/DownloadList';
 import { Statusbar } from './src/components/Statusbar';
 import { StorybookUIRoot } from './.ondevice/Storybook';
 import { Playground } from './src/pages/Playground';
+import { AppRootBackground } from './src/components/AppRootBackground/AppRootBackground';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  const isWindows = Platform.OS === 'windows';
-  const darkBgColor = isDarkMode ? '#202020' : '#F3F3F3';
   const [showPlayground, setShowPlayground] = useState(false);
-
-  const backgroundStyle: StyleProp<ViewStyle> = {
-    backgroundColor: isWindows
-      ? PlatformColor('AcrylicBackgroundFillColorDefaultBrush')
-      : darkBgColor,
-    flex: 1,
-  };
-
   const togglePlayground = () => setShowPlayground(p => !p);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <AppRootBackground>
       {Platform.OS !== 'windows' ? null : <Titlebar />}
       {showPlayground ? null : (
         <Drawer toggle={togglePlayground}>
@@ -63,7 +38,7 @@ function App(): React.JSX.Element {
           <Playground />
         </>
       )}
-    </SafeAreaView>
+    </AppRootBackground>
   );
 }
 
