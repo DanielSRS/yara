@@ -1,6 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './TorrentInfo.styles';
+import { SurfaceCard } from '../../components';
+import { FluentIcon } from '../../Libs/Icons/Fluent/FluentIcons';
 
 /**
  * Exibe as informações de um torrent ou magnect link
@@ -43,5 +45,58 @@ const TorrentFileList = () => {
  * de criação, onde os arquivos serão salvos e etc.
  */
 const TorrentInfoCards = () => {
-  return null;
+  return (
+    <View style={styles.infoCardsContainer}>
+      <InfoCard
+        infoName={'Name'}
+        infoValue={'Torrent_name_with_lots_of_info'}
+        showEditButton={true}
+      />
+
+      {/* Split in two */}
+      <View style={styles.splitInTwo}>
+        <InfoCard infoName={'Tamanho total'} infoValue={'9,37 GB'} />
+        <InfoCard infoName={'Arquivos'} infoValue={'7'} />
+      </View>
+
+      <InfoCard
+        infoName={'Destino'}
+        infoValue={'/storage/emulated/0/Download'}
+        showEditButton={true}
+      />
+
+      <InfoCard
+        infoName={'Hash'}
+        infoValue={'23eeh36ndgfnd354n5f234f5ng3f45ng32f45ng'}
+      />
+    </View>
+  );
+};
+
+interface InfoCardProps {
+  infoName: string;
+  infoValue: string;
+  showEditButton?: boolean;
+  onEditPress?: () => void;
+}
+const InfoCard = (props: InfoCardProps) => {
+  const { infoName, infoValue, onEditPress, showEditButton = false } = props;
+  return (
+    <SurfaceCard style={styles.infoCardContainer}>
+      <View style={styles.infoCardTitleRow}>
+        <Text style={styles.infoCardTitle}>{infoName}</Text>
+        {!showEditButton ? null : (
+          <TouchableOpacity onPress={onEditPress}>
+            <FluentIcon
+              name={'ic_fluent_edit_20_regular'}
+              width={18}
+              height={18}
+              color={'black'}
+            />
+          </TouchableOpacity>
+        )}
+      </View>
+      <Text style={styles.infoCardValue}>{infoValue}</Text>
+    </SurfaceCard>
+  );
 };

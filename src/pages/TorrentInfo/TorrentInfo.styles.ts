@@ -18,4 +18,34 @@ export const styles = StyleSheet.create({
     flex: 1,
     maxWidth: 350,
   },
+
+  /** Torrent info cards */
+  infoCardsContainer: {
+    gap: 8,
+    paddingHorizontal: 18,
+    paddingTop: 1,
+  },
+  splitInTwo: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+
+  /** Info card */
+  infoCardContainer: {
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    gap: 10,
+    flexGrow: 1,
+    // borderRadius: 3,
+  },
+  infoCardTitle: {
+    fontSize: 14,
+  },
+  infoCardValue: {
+    fontSize: 12,
+  },
+  infoCardTitleRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 });
