@@ -1,8 +1,12 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Yara - A torrent downloader
 
-# Getting Started
+|Torrent list|Add new torrent|
+|--|--|
+|![Alt text](/screenshots/torrentList.png "Torrent list")|![Alt text](/screenshots/addTorrent.png "Add new torrent")|
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Getting Started
+
+>**Note**: Make sure you have completed the [React Native](https://reactnative.dev/docs/environment-setup) and the [React Native Windows](https://microsoft.github.io/react-native-windows/docs/rnw-dependencies) environment setup instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -11,10 +15,7 @@ First, you will need to start **Metro**, the JavaScript _bundler_ that ships _wi
 To start Metro, run the following command from the _root_ of your React Native project:
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
+# Note: You need to enable Nodejs corepack to use Yarn berry
 yarn start
 ```
 
@@ -22,23 +23,25 @@ yarn start
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
+
+### For Windows
+
+```bash
+# Note: You need to enable Nodejs corepack to use Yarn berry
+yarn windows
+```
+
 ### For Android
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
+# Note: You need to enable Nodejs corepack to use Yarn berry
 yarn android
 ```
 
 ### For iOS
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
+# Note: You need to enable Nodejs corepack to use Yarn berry
 yarn ios
 ```
 
@@ -73,6 +76,7 @@ If you can't get this to work, see the [Troubleshooting](https://reactnative.dev
 To learn more about React Native, take a look at the following resources:
 
 - [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [React Native for Windows Website](https://microsoft.github.io/react-native-windows/) - learn more about React Native for Windows.
 - [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
