@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './TorrentInfo.styles';
-import { SurfaceCard } from '../../components';
+import { File, Folder, SurfaceCard } from '../../components';
 import { FluentIcon } from '../../Libs/Icons/Fluent/FluentIcons';
 
 /**
@@ -36,7 +36,95 @@ export const TorrentInfo = () => {
  * Exibe a lista de pastas e arquivos no torrent
  */
 const TorrentFileList = () => {
-  return null;
+  return (
+    <View style={{ paddingHorizontal: 18, gap: 2 }}>
+      {/* Pastas */}
+      {[
+        {
+          name: 'folder name',
+          files: [
+            {
+              name: 'first file in the folder',
+              extension: 'txt',
+              size: 4584648,
+              downloadProgress: 548568,
+              path: 'path',
+            },
+            {
+              name: 'second file in the folder',
+              extension: 'mp3',
+              size: 87986415689,
+              downloadProgress: 54145,
+              path: 'path2',
+            },
+          ],
+          subFolders: [
+            {
+              name: 'subfolder',
+              files: [],
+              subFolders: [],
+            },
+          ],
+        },
+        {
+          name: 'empty',
+          files: [],
+          subFolders: [],
+        },
+        {
+          name: 'foo',
+          files: [],
+          subFolders: [
+            {
+              name: 'bar',
+              files: [
+                {
+                  name: 'surprise',
+                  extension: 'epub',
+                  size: 13548487,
+                  downloadProgress: 123,
+                  path: 'sklj',
+                },
+              ],
+              subFolders: [],
+            },
+          ],
+        },
+      ].map((folder, index) => (
+        <Folder
+          key={index + ''}
+          name={folder.name}
+          files={folder.files}
+          subFolders={folder.subFolders}
+        />
+      ))}
+
+      {/* Arquivos */}
+      {[
+        {
+          name: 'random file',
+          type: 'tar',
+          size: 4584648,
+          downloadProgress: 548568,
+        },
+        {
+          name: 'gues what I contain',
+          type: 'gz',
+          size: 879461532,
+          downloadProgress: 651,
+        },
+      ].map((file, index) => (
+        <File
+          key={index + ''}
+          fileName={file.name}
+          fileType={file.type}
+          size={file.size}
+          progress={file.downloadProgress}
+          status={'downloading'}
+        />
+      ))}
+    </View>
+  );
 };
 
 /**
