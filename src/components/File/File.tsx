@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   ViewStyle,
+  useColorScheme,
 } from 'react-native';
 import { DefaultText } from '../Text';
 import { SurfaceCard } from '../Atoms';
@@ -41,6 +42,12 @@ function _File(
     cardStyle,
     showStatus = false,
   } = props;
+  const isDark = useColorScheme() === 'dark';
+  const iconContainerBg = isDark
+    ? 'rgba(0, 0, 0, 0.7)'
+    : 'rgba(255, 255, 255, 0.7)';
+
+  const fontColor = !isDark ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.7)';
 
   const fileSize = convertByteUnitys(size);
 
@@ -119,22 +126,26 @@ function _File(
           <View
             style={{
               paddingHorizontal: 3,
-              paddingVertical: 1,
+              paddingBottom: 1,
               borderRadius: 3,
-              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              backgroundColor: iconContainerBg,
             }}>
-            <DefaultText style={{ fontSize: 10 }}>{fileType}</DefaultText>
+            <DefaultText style={{ fontSize: 10, color: fontColor }}>
+              {fileType}
+            </DefaultText>
           </View>
 
           {/* IconContainer file size */}
           <View
             style={{
               paddingHorizontal: 3,
-              paddingTop: 2,
+              paddingBottom: 1,
               borderRadius: 3,
-              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              backgroundColor: iconContainerBg,
             }}>
-            <DefaultText style={{ fontSize: 10 }}>{fileSize}</DefaultText>
+            <DefaultText style={{ fontSize: 10, color: fontColor }}>
+              {fileSize}
+            </DefaultText>
           </View>
         </View>
       </SurfaceCard>
