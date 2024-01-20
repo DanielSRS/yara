@@ -2,7 +2,7 @@
 
 |Torrent list|Add new torrent|
 |--|--|
-|![Alt text](/screenshots/torrentList.png "Torrent list")|![Alt text](/screenshots/addTorrent.png "Add new torrent")|
+|![Alt text](https://github.com/DanielSRS/yara/assets/39845798/a00b6197-6cba-4997-8938-e4bcd7472d0b "Torrent list")|![Alt text](https://github.com/DanielSRS/yara/assets/39845798/87e0e857-df83-45eb-831d-1d45076e4b42 "Add new torrent")|
 
 ## Getting Started
 
