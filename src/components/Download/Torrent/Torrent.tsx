@@ -1,21 +1,32 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { Caption, DefaultText } from "../../Text";
-import { SurfaceCard } from "../../Atoms";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Caption, DefaultText } from '../../Text';
+import { SurfaceCard } from '../../Atoms';
+import { convertByteUnitys } from '../../../utils/size/sizeConverters';
+import { msToHHMMSS } from '../../../utils/time/timeConverters';
 
 interface Theme {
   colors: {
     background: string;
   };
-};
+}
 
 interface TorrentDownloadProps {
-  /** Titulo do torrent */
-  title: string;
+  /** Nome do torrent */
+  name: string;
   /** Tema do componete */
   theme?: Theme;
   /** Função de callback ao clicar no card do torrent */
-  onPress?: () => void,
+  onPress?: () => void;
+
+  numberOfFiles: number;
+  size: number;
+  elapsedTime: number;
+  remainingTime: number;
+  downloadSpeed: number;
+  totalDownloaded: number;
+  uploadSpeed: number;
+  totalUploaded: number;
 }
 
 const defaultTheme: Theme = {
@@ -25,106 +36,93 @@ const defaultTheme: Theme = {
 };
 
 export const TorrentDownload = (props: TorrentDownloadProps) => {
-  const { title, theme: { colors: { background } } = defaultTheme, onPress } = props;
-  const numberOfFiles = 0;
-  const size = 0;
-  const elapsedTime = 0;
-  const remainingTime = 0;
-  const downloadSpeed = 0;
-  const totalDownloaded = 0;
-  const uploadSpeed = 0;
-  const totalUploaded = 0;
+  const {
+    name,
+    theme: { colors: { background } } = defaultTheme,
+    onPress,
+    numberOfFiles,
+    size,
+    elapsedTime,
+    remainingTime,
+    downloadSpeed,
+    totalDownloaded,
+    uploadSpeed,
+    totalUploaded,
+  } = props;
+  background;
 
-  const label_NumberOfFiles = 'Number of files'
-  const label_Size = 'Size'
-  const label_ElapsedTime = 'Elapsed time'
-  const label_Remaining = 'Remaining time'
-  const label_Ratio = 'Ratio'
+  const label_NumberOfFiles = 'Number of files';
+  const label_Size = 'Size';
+  const label_ElapsedTime = 'Elapsed time';
+  const label_Remaining = 'Remaining time';
+  const label_Ratio = 'Ratio';
+  const ratio = (totalUploaded / totalDownloaded).toFixed(2);
+
+  const sizeValue = convertByteUnitys(size);
+  const downloadSpeedValue = convertByteUnitys(downloadSpeed);
+  const uploadSpeedValue = convertByteUnitys(uploadSpeed);
+  const totalDownloadedValue = convertByteUnitys(totalDownloaded);
+  const totalUploadedValue = convertByteUnitys(totalUploaded);
+  const elapsedTimeValue = msToHHMMSS(elapsedTime);
+  const remainingTimeValue = msToHHMMSS(remainingTime);
   return (
-    <SurfaceCard style={[styles.container]}>
-      <TouchableOpacity onPress={onPress}>
-        <DefaultText numberOfLines={2} style={styles.title}>{title}</DefaultText>
+    <TouchableOpacity onPress={onPress}>
+      <SurfaceCard style={[styles.container]}>
+        <DefaultText numberOfLines={2} style={styles.title}>
+          {name}
+        </DefaultText>
         <Separator />
 
         {/** Numero de arquivos sendo baixados */}
         <TwoColumnText>
-          <Caption>
-            {label_NumberOfFiles}
-          </Caption>
-          <Caption>
-            {numberOfFiles}
-          </Caption>
+          <Caption>{label_NumberOfFiles}</Caption>
+          <Caption>{numberOfFiles}</Caption>
         </TwoColumnText>
 
         {/** Tamanho do download */}
         <TwoColumnText>
-          <Caption>
-            {label_Size}
-          </Caption>
-          <Caption>
-            {size}
-          </Caption>
+          <Caption>{label_Size}</Caption>
+          <Caption>{sizeValue}</Caption>
         </TwoColumnText>
 
         {/** Tempo decorrido */}
         <TwoColumnText>
-          <Caption>
-            {label_ElapsedTime}
-          </Caption>
-          <Caption>
-            {elapsedTime}
-          </Caption>
+          <Caption>{label_ElapsedTime}</Caption>
+          <Caption>{elapsedTimeValue}</Caption>
         </TwoColumnText>
 
         {/** Tempo restante */}
         <TwoColumnText>
-          <Caption>
-            {label_Remaining}
-          </Caption>
-          <Caption>
-            {remainingTime}
-          </Caption>
+          <Caption>{label_Remaining}</Caption>
+          <Caption>{remainingTimeValue}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
 
         {/** Velocidade de download */}
         <TwoColumnText>
-          <Caption>{`   ${downloadSpeed} KB/s`}</Caption>
-          <Caption>{totalDownloaded}</Caption>
+          <Caption>{`   ${downloadSpeedValue}/s`}</Caption>
+          <Caption>{totalDownloadedValue}</Caption>
         </TwoColumnText>
 
         {/** Velocidade de upload */}
         <TwoColumnText>
-          <Caption>{`   ${uploadSpeed} KB/s`}</Caption>
-          <Caption>{totalUploaded}</Caption>
+          <Caption>{`   ${uploadSpeedValue}/s`}</Caption>
+          <Caption>{totalUploadedValue}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
 
         {/** Ratio */}
         <TwoColumnText>
-          <Caption>
-            {label_Ratio}
-          </Caption>
-          <Caption>
-            {'-'}
-          </Caption>
+          <Caption>{label_Ratio}</Caption>
+          <Caption>{ratio}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
 
         {/** Status */}
         <TwoColumnText>
@@ -133,32 +131,36 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         </TwoColumnText>
 
         {/** Espaço em branco */}
-        <TwoColumnText>
-          {' '}
-          {' '}
-        </TwoColumnText>
+        <TwoColumnText />
         {}
-      </TouchableOpacity>
-    </SurfaceCard>
+      </SurfaceCard>
+    </TouchableOpacity>
   );
-}
+};
 
 const Separator = () => {
   return (
     <View style={{ paddingVertical: 10, alignItems: 'center' }}>
       {}
-      <View style={{ height: 2, borderRadius: 2, width: 20, backgroundColor: 'white' }} />
+      <View
+        style={{
+          height: 2,
+          borderRadius: 2,
+          width: 20,
+          backgroundColor: 'white',
+        }}
+      />
       {}
     </View>
   );
-}
+};
 
 interface TwoColumnTextProps {
-  children: [string | React.ReactNode, string | React.ReactNode];
+  children?: [string | React.ReactNode, string | React.ReactNode];
 }
 
 const TwoColumnText = (props: TwoColumnTextProps) => {
-  const { children } = props;
+  const { children = ['', ''] } = props;
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
       {}
@@ -167,11 +169,11 @@ const TwoColumnText = (props: TwoColumnTextProps) => {
       {}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    maxWidth: 230,
+    maxWidth: 230, // ou talvez 180 seja melhor
     minWidth: 180,
     paddingHorizontal: 10,
     paddingTop: 10,

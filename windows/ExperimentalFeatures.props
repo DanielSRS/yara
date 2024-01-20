@@ -14,7 +14,7 @@
       
       See https://microsoft.github.io/react-native-windows/docs/hermes
     -->
-    <UseHermes>false</UseHermes>
+    <UseHermes>true</UseHermes>
 
     <!--
       Changes compilation to assume use of WinUI 3 instead of System XAML.
@@ -46,10 +46,13 @@
       -include Windows.Security.Cryptography.BinaryStringEncoding
       -include Windows.UI.Notifications
       -include Windows.Data.Xml.Dom
+      -include Windows.ApplicationModel
       -include Windows.ApplicationModel.Core
+      -include Windows.ApplicationModel.Core.CoreApplication
+      -include Windows.System
       -include Windows.System.Diagnostics
+      -include Windows.System.Diagnostics.Process
     </RnWinRTParameters>
-  
   </PropertyGroup>
 
 </Project>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Animated, Easing, StyleProp, ViewStyle } from "react-native";
+import React, { useEffect, useRef } from 'react';
+import { Animated, Easing, StyleProp, ViewStyle } from 'react-native';
 
 interface AnimatedViewProps {
   children: React.ReactNode;
@@ -18,8 +18,6 @@ export function AnimatedView(props: AnimatedViewProps) {
       easing: Easing.in(Easing.elastic(3)),
     }).start();
   }, []);
-  
-  return (
-    <Animated.View {...props} style={[style, { left: bottom.current }]} />
-  );
+
+  return <Animated.View {...props} style={[style, { left: bottom.current }]} />;
 }

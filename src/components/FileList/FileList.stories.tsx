@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react-native';
-import React from 'react';
+import { ComponentMeta } from '@storybook/react-native';
 import { FileList } from './FileList';
 
 export default {
@@ -61,5 +60,3 @@ export default {
 } as ComponentMeta<typeof FileList>;
 
 export const Basic: ComponentMeta<typeof FileList> = {};
-
-

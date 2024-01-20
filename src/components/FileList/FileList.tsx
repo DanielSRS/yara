@@ -1,9 +1,8 @@
-import React from "react";
-import { Platform, ScrollView, StyleSheet, View } from "react-native";
+import React from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 // import Animated, { SlideInDown, SlideInLeft } from 'react-native-reanimated';
-import { AnimatedView } from "../../Libs";
-import { File } from "../../components";
-
+import { AnimatedView } from '../../Libs';
+import { File } from '../../components';
 
 interface FileListProps {
   files: {
@@ -20,8 +19,7 @@ export function FileList(props: FileListProps) {
   const { files = [] } = props;
 
   return (
-    <ScrollView
-      style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.contentContainer}>
         {files.map((data, index) => {
           return (
