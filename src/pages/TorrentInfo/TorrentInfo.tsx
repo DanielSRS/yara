@@ -179,7 +179,6 @@ const InfoCard = (props: InfoCardProps) => {
               name={'ic_fluent_edit_20_regular'}
               width={18}
               height={18}
-              color={'black'}
             />
           </TouchableOpacity>
         )}
