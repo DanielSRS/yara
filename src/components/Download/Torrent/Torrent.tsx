@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Caption, DefaultText } from '../../Text';
 import { SurfaceCard } from '../../Atoms';
 import { convertByteUnitys } from '../../../utils/size/sizeConverters';
+import { msToHHMMSS } from '../../../utils/time/timeConverters';
 
 interface Theme {
   colors: {
@@ -62,6 +63,8 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
   const uploadSpeedValue = convertByteUnitys(uploadSpeed);
   const totalDownloadedValue = convertByteUnitys(totalDownloaded);
   const totalUploadedValue = convertByteUnitys(totalUploaded);
+  const elapsedTimeValue = msToHHMMSS(elapsedTime);
+  const remainingTimeValue = msToHHMMSS(remainingTime);
   return (
     <TouchableOpacity onPress={onPress}>
       <SurfaceCard style={[styles.container]}>
@@ -85,13 +88,13 @@ export const TorrentDownload = (props: TorrentDownloadProps) => {
         {/** Tempo decorrido */}
         <TwoColumnText>
           <Caption>{label_ElapsedTime}</Caption>
-          <Caption>{elapsedTime}</Caption>
+          <Caption>{elapsedTimeValue}</Caption>
         </TwoColumnText>
 
         {/** Tempo restante */}
         <TwoColumnText>
           <Caption>{label_Remaining}</Caption>
-          <Caption>{remainingTime}</Caption>
+          <Caption>{remainingTimeValue}</Caption>
         </TwoColumnText>
 
         {/** Espaço em branco */}
