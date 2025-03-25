@@ -7,6 +7,7 @@ import com.facebook.react.defaults.DefaultReactActivityDelegate
 
 /** Required configuration for react-native-screens (native lib) to work. */
 import android.os.Bundle
+
 class MainActivity : ReactActivity() {
 
   /**

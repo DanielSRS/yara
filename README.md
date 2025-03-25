@@ -4,9 +4,9 @@
 |--|--|
 |![Alt text](https://github.com/DanielSRS/yara/assets/39845798/a00b6197-6cba-4997-8938-e4bcd7472d0b "Torrent list")|![Alt text](https://github.com/DanielSRS/yara/assets/39845798/87e0e857-df83-45eb-831d-1d45076e4b42 "Add new torrent")|
 
-## Getting Started
+# Getting Started
 
->**Note**: Make sure you have completed the [React Native](https://reactnative.dev/docs/environment-setup) and the [React Native Windows](https://microsoft.github.io/react-native-windows/docs/rnw-dependencies) environment setup instructions till "Creating a new application" step, before proceeding.
+>**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) and the [React Native Windows](https://microsoft.github.io/react-native-windows/docs/rnw-dependencies) environment setup instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 

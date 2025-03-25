@@ -10,9 +10,11 @@ import { Platform, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Drawer, Titlebar } from './src/components';
 import { DownloadList } from './src/components/Download/List/DownloadList';
 import { Statusbar } from './src/components/Statusbar';
-import { StorybookUIRoot } from './.ondevice/Storybook';
+// import { StorybookUIRoot } from './.ondevice/Storybook';
 import { Playground } from './src/pages/Playground';
 import { AppRootBackground } from './src/components/AppRootBackground/AppRootBackground';
+
+const StorybookUIRoot = null;
 
 function App(): React.JSX.Element {
   const [showPlayground, setShowPlayground] = useState(false);
